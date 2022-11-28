@@ -1,0 +1,59 @@
+{{ define "main" }}
+<section class="container-fluid">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p><img alt="{{ .Title }}" class="w-80" src="{{ .Params.header_image }} "></p>
+    </header>
+    <p><a href="/blog"><i class='bx bx-chevrons-left'></i> Terug naar ons blog</a></p>
+    <div class="row">
+        <div class="col-lg-8">
+            <h1>{{ .Title }}</h1>
+            {{ .Content }}
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-3">
+                <h2 class="card-header">$ blog-details</h2>
+                <div class="card-body">
+                    <dl class="mb-0">
+                        {{ if isset .Params "tags" }}
+                        <dt>$ categorie(ën)</dt>
+                        <dd>
+                            <ul class="list-inline mb-0">
+                                {{ range $name := sort .Params.tags }}
+                                {{ with site.GetPage (printf "/tags/%s" ($name | urlize )) }}
+                                <li class="list-inline-item">
+                                    <a href="{{ .RelPermalink }}" title="{{ .Name }}">{{ .Name }}</a></li>
+                                {{ end }}
+                                {{ end }}
+                            </ul>
+                        </dd>
+                        {{ end }}
+                        {{ if isset .Params "tools" }}
+                        <dt>$ tool(s)</dt>
+                        <dd>
+                            <ul class="list-inline mb-0">
+                                {{ range $name := sort .Params.tools }}
+                                <li class="list-inline-item">{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </dd>
+                        {{ end }}
+                        <dt>$ date</dt>
+                        <dd>{{ .Date.Format .Site.Params.dateFormat }}</dd>
+                        {{ if isset .Params "courses" }}
+                        <dt>$ training(en)</dt>
+                        <dd>
+                            <ul class="list-inline mb-0">
+                                {{ range $name := sort .Params.courses }}
+                                <li class="list-inline-item">{{ safeHTML . }}</li>
+                                {{ end }}
+                            </ul>
+                        </dd>
+                        {{ end }}
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

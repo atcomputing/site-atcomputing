@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <ul class="list-unstyled d-flex justify-content-center">
+        <li class="d-flex align-items-center">
+            <i class="bx bx-envelope me-1"></i>
+            <a class="fs-small" href="mailto:info@atcomputing.nl" title="E-mailadres">info@atcomputing.nl</a>
+        </li>
+        <li class="d-flex align-items-center ms-3">
+            <i class="bx bx-phone me-1"></i>
+            <a class="fs-small" href="tel:+31243527282" title="Telefoonnummer">+31 24 352 72 82</a>
+        </li>
+        <li class="d-none d-sm-flex align-items-center ms-3">
+            <i class="bx bx-map me-1"></i>
+            <a class="fs-small" href="#contact" title="Contactgegevens">Contactgegevens</a>
+        </li>
+    </ul>
+</div>
+<div class="nav-wrapper">
+    <nav class="at-collapse at-collapse-lg">
+        <div class="logo at-collapse-toggle">
+            <a href="/" title="AT Computing">
+                <img alt="AT Computing" class="logo" src="/img/logo/full.png">
+            </a>
+        </div>
+        <ul class="at-collapse-target">
+            <li>
+                <a class="link-inverse" href="/#diensten" title="Diensten">Diensten</a>
+            </li>
+            <li>
+                <a class="link-inverse" href="/#kennis" title="Kennis">Kennis</a>
+            </li>
+            <li>
+                <a class="link-inverse" href="/#trainingen" title="Trainingen">Trainingen</a>
+            </li>
+            <li>
+                <a class="link-inverse" href="/#workshops" title="Workshops">Workshops</a>
+            </li>
+            <li>
+                <a class="link-inverse" href="/#contact" title="Contact">Contact</a>
+            </li>
+            <li>
+                <a class="link-inverse" href="/blog" title="Blog">Blog</a>
+            </li>
+            <li class="pe-lg-3">
+                <a class="link-inverse position-relative" href="/vacatures" title="Vacatures">
+                    Vacatures
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ len (where .Site.RegularPages "Section" "==" "vacatures") }}
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

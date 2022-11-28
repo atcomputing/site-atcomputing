@@ -1,0 +1,84 @@
+---
+title: Wat is Kubernetes?
+date: 2021-12-16T08:37:40
+layout: blog/single
+header_image: /img/blog/wat-is-kubernetes/header.png
+tags:
+- Containers
+tools:
+- Kubernetes
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english-course/" target="_blank">Kubernetes Fundamentals</a>
+- <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-cka-extension-english-course/" target="_blank">Kubernetes CKA Extension</a>
+---
+<p>Kubernetes is op dit moment de de-facto standaard voor containerorkestratie. Met orkestratie kan van een aantal
+    individuele servers, ongeacht merk/type, een cluster worden gebouwd dat containers kan laten draaien. Hierdoor zet
+    je relatief eenvoudig een uitvalbestendige applicatie-omgeving in elkaar. Door de mogelijkheid om binnen het cluster
+    onafhankelijke omgevingen te draaien, is Kubernetes op grote schaal te gebruiken.</p>
+<h2>Waar komt Kubernetes vandaan?</h2>
+<p>Google maakt voor haar productie-omgeving gebruik van een zelf ontwikkeld softwaresysteem met de naam Borg. Borg is
+    ontstaan uit de behoefte om het deployen, opschalen en beheren van gecontaineriseerde applicaties te vereenvoudigen.
+    Het kan worden gezien als een orkestratie-platform dat op basis van spelregels zorgt dat containers worden gestart,
+    gestopt of verplaatst.</p>
+<p>Borg heeft een aantal Google engineers geïnspireerd om medio juni 2014 te beginnen met de bouw van Kubernetes
+    (“kapitein” vrij vertaald uit het Grieks). Juli 2015 is het project door Google, onder Apache Licence 2.0 open
+    source gemaakt door samen met de Linux Foundation de Cloud Native Computing Foundation op te richten. Kubernetes is
+    geschreven in de programmeertaal Go.</p>
+<p>Kubernetes kan worden bediend door middel van een uitgebreide API en de CLI (kubectl). Er is ook een webinterface
+    beschikbaar, waarmee op basis van een GUI kan worden gewerkt. Door de API kan Kubernetes naadloos worden
+    geïntegreerd met een CI/CD pipeline om deployments volledig geautomatiseerd te laten plaatsvinden. Kubernetes werkt
+    met containers op basis van een aantal bouwblokken, objecten genaamd.</p>
+<h2>Kubernetes: hoe spreek je dat precies uit?</h2>
+<p>Er is op internet altijd veel moois te vinden. Zo ook wanneer je zoekt hoe je Kubernetes nu precies uitspreekt. Is
+    het nu “Koe-bur-net-tiez”, “Kuu-ber-nee-tes” of toch “Kjoe-burr-nie-tes”? Volgens Emma Saying is het zoiets als
+    “koo-ber-ne-tace”, maar diverse Youtube-reacties zeggen resoluut dat dat niet klopt. Wat denk jij? En oh ja…. dan is
+    er ook nog K8s. De 8 staat hierbij voor het aantal letters tussen de K en de s. Volgens howtopronounce.cc spreek je
+    dit dan weer uit als “K-eight-s”. We wensen je veel plezier toe met oefenen!</p>
+<h2>Pods</h2>
+<p>De Pod is de basiseenheid waarbinnen een applicatie draait. Een pod bestaat uit 1 of meerdere containers. Dit kunnen
+    Docker containers zijn, maar ook andere container-implementaties worden ondersteund zoals CRI-O en containerd.</p>
+<p>Uitgangspunt is dat iedere pod een enkele instantie draait van een applicatie. Als je de applicatie wilt opschalen,
+    dan verhoog je het aantal pods. Je schaalt niet op door meerdere applicaties binnen dezelfde pod te starten.</p>
+<h2>Services</h2>
+<p>Bij het starten van een pod wordt dynamisch een IP-adres toegewezen op het interne pod netwerk. Hierdoor kan het
+    IP-adres van een pod na een herstart weer veranderd zijn. Met een service blijven de pods bereikbaar op basis van de
+    service-naam. Kubernetes zorgt ervoor dat wordt bijgehouden welke pod op welk adres draait. Pods en services zijn
+    veelgebruikte bouwblokken voor micro-services.</p>
+<h2>Volumes</h2>
+<p>Een uitgangspunt van Kubernetes is dat een container binnen een pod “state-less” is en altijd gestopt en opnieuw
+    gestart moet kunnen worden, om te zorgen dat de pod (en daarmee de applicatie de en/of service) beschikbaar blijft.
+    Wanneer een container gestopt wordt dan gaat alle data in die container verloren, want een nieuwe container start
+    met een schone lei. Dit is niet altijd wenselijk. Kubernetes kan daarom werken met persistent volumes. Hierbij staat
+    de opslagruimte buiten de pod. Op die manier kunnen containers in de pod gebruik maken van opslag die behouden
+    blijft als de container (of de pod) stopt. Er zijn voor verschillende toepassing uiteenlopende soorten volumes, denk
+    aan nfs, cephfs, glusterfs, iscsi, local maar ook binnen cloud-providers zoals bijvoorbeeld Azure (azureDisk), AWS
+    (awsElasticBlockStore) en Google (gcePersistentDisk).</p>
+<h2>Namespaces</h2>
+<p>Zoals gezegd is Kubernetes afkomstig uit de koker van Google. Het is geboren om op grote (beter: enorme) schaal te
+    gebruiken. Kubernetes biedt daarom door middel van namespaces de mogelijkheid om binnen het cluster onafhankelijke
+    omgevingen te draaien. Hierdoor kunnen binnen namespace A pods of services draaien met dezelfde naam als in
+    namespace B zonder dat ze last hebben van elkaar. Het gebruik van namespaces brengt de nodige complexiteit en
+    uitdagingen met zich mee, maar bij grote(re) implementaties ook voordelen. Zo kun je voor monitoring een aparte
+    monitoring namespace maken, waarvoor een apart/onafhankelijk team verantwoordelijk is. Je kan ook ieder team binnen
+    een bedrijf een eigen namespace geven, waardoor ieder team onafhankelijk van elkaar met Kubernetes kan werken maar
+    waarbij je wel grip houdt op de resources die een namespace gebruikt.</p>
+<h2>Populariteit</h2>
+<p>Op dit moment is Kubernetes de de-facto standaard wanneer het aankomt op container-orkestratie. Diverse derde
+    partijen bieden Kubernetes als ondersteunende dienst of platform aan, waaronder Red Hat Openshift, Google Kubernetes
+    Engine (GKE), Azure Container Service (AKS) en Amazon Elastic Container Service (EKS). Wil je meer weten over
+    Kubernetes? Kijk dan eens op <a href="https://kubernetes.io/" target="_blank">https://kubernetes.io/</a>.</p>
+<h2>AT Computing & Kubernetes</h2>
+<p>Als open source specialist kan AT Computing natuurlijk niet om Kubernetes heen. Dat doen we dus ook niet! Bovendien
+    helpen we je met onze trainingen <a
+            href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english-course/" target="_blank">Kubernetes
+        Fundamentals</a> (3 dagen) en de <a
+            href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-cka-extension-english-course/"
+            target="_blank">CKA Extension</a> (1 dag) goed op weg om je CKAD en/of CKA certificering te behalen. Als
+    trainingspartner van de Linux Foundation kunnen wij bovendien de <a
+            href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-application-developer-ckad-examenvoucher/"
+            target="_blank">CKAD</a>/<a
+            href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-administrator-cka-examenvoucher/"
+            target="_blank">CKA</a> examenvouchers leveren.</p>
+<p>Heb je hulp nodig bij implementatie of zoek je advies voordat je met Kubernetes aan de slag gaat? We staan voor je
+    klaar. Stuur een e-mail naar info@atcomputing.nl en we nemen contact met je op om vrijblijvend jouw situatie en
+    wensen te bespreken.</p>

@@ -1,0 +1,43 @@
+---
+title: De patch van Rens voor Packer
+date: 2021-12-16T14:01:00
+layout: blog/single
+header_image: /img/blog/de-patch-van-rens-voor-packer/header.png
+tags:
+- Infrastructure as Code
+tools:
+- Packer
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/linux-infrastructure-fundamentals/" target="_blank">Linux Infrastructure Fundamentals</a>
+---
+<p class="fst-italic">Wat als de configuratie tool niet bevalt? Dan bouw je mee aan de code! Rens Sikma,
+    Linux-Specialist bij AT Computing, heeft bijgedragen aan Hashicorp Packer en heeft daarmee het ontwikkelen van de
+    labomgeving voor onze cursisten gemakkelijker gemaakt. Waarvoor gebruiken wij Hashicorp Packer?</p>
+<p>Bij AT Computing maken wij in onze cursussen gebruik van labomgevingen. Met behulp van de VM’s kunnen onze cursisten
+    in een nagebootste omgeving hands-on oefenen. Voor deze labomgevingen gebruiken wij Hashicorp Packer. Packer is een
+    infrastructure-as-code (IaC) tool waarmee je op een softwarematige benadering de IT-infrastructuur kunt aanpassen en
+    uitrollen met behulp van templates.</p>
+<h2>Waar liepen wij tegen aan?</h2>
+<p>Bij het ontwikkelen van de labomgevingen bouwen wij images in een testomgeving. Als de testomgeving klaar is,
+    verplaatsen we de image naar de productomgeving. Toen Rens bezig was met het ontwikkelen van de labomgeving voldeed
+    Packer niet helemaal aan zijn verwachtingen. Hij vertelt: “Packer werkte anders met Google Cloud Platform dan ik had
+    verwacht. Het eigenaardige gedrag van Packer was dat je project images en publieke images kon gebruiken wanneer je
+    geen project opgaf, maar alleen de project images van een project wanneer je wel een projectnaam opgaf. Onze
+    omgeving werd steeds complexer en de project-eigenschap maakte dat Packer niet langer handig werkte: de beperking op
+    gebied van de images maakte dat we een work-around moesten toepassen. Dit maakte de omgeving en het uitrollen van
+    lab-omgevingen nog complexer.” aldus Rens.</p>
+<h2>De oplossing</h2>
+<p>Na het instellen van de work-around wilde Rens weten wat er nu precies gebeurde en waarom het niet werkte: “Al vrij
+    snel kwam ik erachter waar dit aan lag, namelijk het ontbreken van de mogelijkheid om meerdere projecten op te
+    geven. Toen heb ik een issue bij de repo van Packer op GitHub ingediend met de vraag of het mogelijk is om keuze uit
+    images te hebben wanneer je een project opgeeft. Dit zou het voor ons mogelijk maken om gebruik te maken van images
+    uit zowel publieke als eigen productie projecten. Na het inschieten van het issue heb ik overleg met Hashicorp (het
+    bedrijf achter Packer) gehad en ben ik aan de slag gegaan. Nadat mijn code klaar was diende ik een pull-request in
+    en niet veel later is mijn code in een nieuwe patch voor Packer meegenomen. Nu is het mogelijk om een lijstje van
+    projecten aan te leveren waar je de images uit wilt gebruiken. Dit maakt het ontwikkelen van onze labomgevingen een
+    stuk gemakkelijker! En wellicht maakt het het leven van andere Packer-gebruikers ook net wat eenvoudiger.”</p>
+<h2>Over Rens Sikma</h2>
+<p>Rens werkt sinds begin 2018 bij AT Computing als Linux-Specialist. Hij noemt zichzelf een echte Linux nerd en zijn
+    vrije tijd besteed hij aan programmeren. Met deze case heeft Rens zijn Go expertise ingezet en een bijdrage geleverd
+    aan Packer. Mede danzij zijn ervaring met Packer heeft Rens zich ook bezig gehouden met het schrijven van een
+    plug-in voor een ander projecten van Hashicorp: Terraform. Het zal vast niet zijn laatste bijdrage zijn....</p>

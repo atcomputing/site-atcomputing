@@ -1,0 +1,105 @@
+---
+title: Add, commit, push
+date: 2022-06-09T11:47:00
+layout: blog/single
+header_image: /img/blog/add-commit-push/header.png
+tags:
+- CI-CD Pipelines
+tools:
+- GitLab
+- Google Cloud Run
+- Linux, Bootstrap
+- Terraform
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/ci-cd-fundamentals-with-gitlab/" target="_blank">CI/CD Fundamentals with GitLab</a>
+- <a href="https://www.vijfhart.nl/opleidingen/version-control-with-git/" target="_blank">Version Control With Git</a>
+---
+<p class="fst-italic">Sinds 1 januari 2022 hebben we een geheel vernieuwde website bij AT Computing. Dat had een
+    veelvoud aan redenen, maar belangrijkste was het vereenvoudigen van onderhoud. In dit blog nemen we je mee voor een
+    kijkje achter de schermen. Hoe draaien wij atcomputing.nl?</p>
+<p>Laten we eerst eens beginnen met een situatieschets van onze oude website. Dit betrof feitelijk een kloon van de
+    website van onze zuster Vijfhart IT-Opleidingen, gebaseerd op Wordpress. Wordpress is open source, maar dat wil niet
+    zeggen dat het heilig is. Het heeft uitgesproken vrienden en vijanden, waarbij het voor AT Computing meer vijand dan
+    vriend was. De website zoals deze in Wordpress gebouwd was, was complex. Een hele batterij plug-ins en (custom)
+    extensies was aan elkaar geknoopt om te zorgen dat alles draaide. Er kon daardoor enorm veel, maar dat gebruikten we
+    nauwelijks. Er was daarnaast ook veel wat we juist nodig hadden wat dan weer niet (eenvoudig) kon.</p>
+<p>Extra complicerende factor was dat het beheer van Wordpress was uitbesteed aan een externe partij. Hoewel we
+    bijvoorbeeld teksten konden aanpassen of een blog konden toevoegen, was het (simpelweg) aanpassen van een logo of
+    een kleurtje al gelijk een ingreep die moest worden belegd bij de leverancier. Jammer, want kennis en kunde om dit
+    zelf te kunnen doen is ruimschoots aanwezig binnen de muren van het AT clubhuis! Zeker met het implementeren van
+    onze nieuwe huisstijl begon dit toch wel erg te wringen en nieuwbouw was dan ook een betere oplossing dan ombouwen
+    van het bestaande. En als we dan toch gaan bouwen...</p>
+<h2>Doe wat je zegt</h2>
+<p>Het AT Computing team vult (een groot deel van) haar werkdagen met het automatiseren van werk bij onze klanten. We
+    zijn daarbij groot voorstander van trends als Infrastructure as Code en GitOps. Bijpassende oneliner? Bij deze:
+    <strong>“Als het niet in versiebeheer zit dan bestaat het niet.”</strong> Hartstikke mooi en hip, maar bij onze
+    eigen website was dit principe ver te zoeken. We draaiden bovendien op een extern webhosting platform waar we geen
+    zicht of controle op hadden (want uitbesteed). Nu was dit onder water gelukkig grotendeels open source (Apache op
+    Linux), maar qua patch levels en overige details hadden we te slikken wat ons geboden werd. Daar zijn we natuurlijk
+    veel te ATypical (lees: eigenwijs) voor!</p>
+<p>De kaders voor design, hosting en onderhoud van de nieuwe site werden dan ook al snel in beton gegoten: alles 100% in
+    versiebeheer, 100% Infrastructure as Code, 100% open source en 100% in eigen beheer. En zo geschiedde.</p>
+<p>We hebben geprobeerd om de site zo eenvoudig mogelijk te houden. De basis van de website wordt gevormd door het
+    <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> framework. Het mooie van Bootstrap is dat het
+    “platte” html/css is, dus je kunt het heel eenvoudig lokaal draaien en testen. Je hebt geen webserver nodig.</p>
+<p>Toen de contouren eenmaal stonden was het tijd om de infra er omheen te bouwen. We draaien bij AT alles binnen Google
+    Cloud Platform. Regio <a href="https://cloud.google.com/about/locations" target="_blank">europe-west4</a> (dus het
+    datacenter in Delfzijl) om precies te zijn. Het kloppend hart van onze omgeving wordt gevormd door
+    <a href="https://gitlab.com/" target="_blank">GitLab</a>. Binnen GitLab draaien tientallen repositories voor o.a. de
+    lab-omgevingen van onze trainingen.</p>
+<p>Ook voor onze nieuwe website hebben we een repo gemaakt. In deze repo zit alle broncode voor de site (incl. Alle
+    content zoals afbeeldingen etc.) en ook alles wat nodig is om de site as code te hosten. Hiervoor maken we gebruik
+    van een CI/CD Pipeline. Met die pipeline wordt de site met <a href="https://docker.io/" target="_blank">Docker</a>
+    in een <a href="https://www.alpinelinux.org/" target="_blank">Alpine Linux</a> container met
+    <a href="https://nginx.org/" target="_blank">Nginx</a> web server gestopt en vervolgens door middel van
+    <a href="https://www.terraform.io/" target="_blank">Terraform</a> binnen
+    <a href="https://cloud.google.com/run" target="_blank">Google Cloud Run</a> neergezet om van daaruit bereikbaar te
+    worden op het wereldwijde web. De site draait dus feitelijk “serverless”. start alleen een container op wanneer er
+    een HTTP-request binnenkomt (en er dus een bezoeker op de site is).</p>
+<figure class="mb-3">
+    <img alt="Git" class="w-100" src="/img/blog/add-commit-push/git.png">
+</figure>
+<p>Bijwerken van de site is door deze verregaande automatisering een fluitje van een cent. Je prutst hetgeen je wilt
+    aanpassen bij elkaar (bijvoorbeeld dit blog) en als je klaar bent dan zijn er drie commando’s om de boel klaar te
+    maken voor lancering naar “Productie” (oftewel: atcomputing.nl).</p>
+<code class="d-block mb-3">
+    $ git add <span class="text-muted"># bestand(en) aan de index toevoegen (* voor alle bestanden/wijzigingen)</span><br>
+    $ git commit -m “” <span class="text-muted"># leg wijzigingen in de repository vast</span><br>
+    $ git push <span class="text-muted"># update remote repository/referenties en bijbehorende objecten</span>
+</code>
+<p>Met push worden de wijzigingen die je hebt gemaakt (op je lokale systeem) naar de repository in GitLab gestuurd,
+    waarna automatisch de CI/CD Pipeline start en de nieuwe versie van de site op een test-omgeving wordt gedeployed.
+    Hier kun je nog even checken of alles naar wens is, wat een gevalletje “it worked on my laptop” voorkomt. Als alles
+    in orde is dan kan de laatste stap worden gezet: uitrollen in “productie”. Dit is bewust een handmatige actie om
+    zoveel mogelijk te voorkomen dat er foutjes in de live-omgeving sluipen en biedt tevens de mogelijkheid om op een
+    specifiek moment naar keuze “live” te gaan, bijvoorbeeld als onderdeel van een marketing-campagne. In vakjargon
+    hebben we dus Continuous Delivery geïmplementeerd en geen Continuous Deployment.</p>
+<p>Omdat bovenstaande cirkeltje eindeloos herhaald kan worden, kun je letterlijk voor iedere typefout die je ziet een
+    git push doen en deze wegpoetsen. Het haalt daarmee (nagenoeg) alle drempels weg die continu verbeteren in de weg
+    kunnen zitten. Je hoeft geen tickets in te schieten in een of ander portaal bij een externe leverancier, geen
+    mailtjes te sturen met daarin je wensen. Nope. Zo snel als je een fout ziet kun je de fout herstellen. Zonder
+    verdere afhankelijkheden van derden. Heerlijk!</p>
+<p>Nog een voordeel? Cloud Run kost alleen geld op het moment dat er een container draait. We betalen daarmee dus alleen
+    voor onze site als er ook daadwerkelijk bezoekers zijn. Onze kosten voor hosting zijn daardoor aanzienlijk gedaald
+    ten opzichte van de oude situatie waarbij er een VM 24/7 stond te zoemen. Met of zonder bezoeker(s) op de site.</p>
+<h2>Natuurlijk gaat het bij ons ook wel eens mis!</h2>
+<p>Dit blog leest misschien als een soort ideale wereld. En we leefden nog lang en gelukkig. Niets is minder waar. Er
+    valt immers nog steeds genoeg te optimaliseren en er is ook genoeg fout gegaan tijdens het stap-voor-stap verbeteren
+    van onze web-infra. De grootste impact werd veroorzaakt door een foutje bij het activeren van DNSSEC. Hierbij ging
+    er iets mis met het juist configureren van de vertrouwensketen tussen onze Cloud DNS service bij Google en het
+    atcomputing.nl domein bij onze registrar Tunix. Gevolg? Het hele domein lag plat. Om een uur of 09:00 in de ochtend.
+    Terwijl er twee klassen met cursisten een lab-omgeving nodig hadden…. #oeps. Vanzelfsprekend hingen in no-time twee
+    zeer gestreste docenten aan de telefoon.</p>
+<p>Toch kwam ook hierbij het voordeel van agile werken en continuous improvement om de hoek kijken. We hadden op de
+    gehele infra maar 1 enkele wijziging doorgevoerd op dat moment: er was een DS record toegevoegd ten behoeve van
+    DNSSEC. De oplossing was dan ook snel gevonden. We hebben DNSSEC tijdelijk “uit” gezet binnen Cloud DNS en na enige
+    tijd (hoi, <a href="https://ns1.com/resources/dns-propagation" target="_blank">DNS propagation</a>) kwam alles weer
+    in de lucht</p>
+<p>Ook blijken er zo nu en dan nog “kinderziektes” in nieuwe pagina’ te zitten waarbij er strikt genomen niet goed
+    genoeg getest is voordat de productie-deployment wordt gestart. Denk aan afbeeldingen die niet lekker uitlijnen op
+    mobiel of tekstblokken die niet goed worden afgebroken. En ook de pipeline zelf is wel eens stuk, bijvoorbeeld omdat
+    er ergens een versie van een tool is gewijzigd of er een API is veranderd. Niets menselijks is ons vreemd.</p>
+<p>Hoewel we erg blij zijn met de manier waarop de site werkt en eruit ziet, zijn we nog steeds bezig om dingen aan te
+    passen. Zo is een van de wensen om <a href="https://gohugo.io/" target="_blank">Hugo</a> te implementeren en daarmee
+    het onderhoud van de statische elementen van de site (zoals de headers en footers) nog simpeler te maken. Feit
+    blijft: hoeveel je ook automatiseert, er blijft altijd (meer dan) genoeg over om te doen.</p>

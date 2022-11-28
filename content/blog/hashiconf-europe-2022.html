@@ -1,0 +1,145 @@
+---
+title: HashiConf Europe 2022
+date: 2022-06-23T18:00:00
+layout: blog/single
+header_image: /img/blog/hashiconf-europe-2022/header.png
+tags:
+- Events
+tools:
+- Terraform
+- Consul
+- Nomad
+- Vault
+- Boundary
+- Waypoint
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/ci-cd-fundamentals-with-gitlab/" target="_blank">CI/CD Fundamentals with GitLab</a>
+- <a href="https://www.vijfhart.nl/opleidingen/version-control-with-git/" target="_blank">Version Control With Git</a>
+---
+<p class="fst-italic">Op 21 en 22 juni 2022 vond HashiConf Europe plaats in Amsterdam. Als HashiCorp Enabled Partner was
+    AT Computing natuurlijk van de partij! Chris van Meer hield gedurende de conferentie zijn notitieblok paraat en
+    deelt in dit blog zijn ervaringen.</p>
+<h2>Dag #0</h2>
+<p>De conferentie begon op dinsdag, maar op maandag stonden al een twee taken in mijn agenda. Allereerst het ophalen van
+    de toegangspas en (natuurlijk) de eerste lading swag. ‘s Avonds was het tijd om, samen met collega’s Marcel en
+    Dennis, deel te nemen aan een speciaal HashiCorp partner-uitje. In dit geval betekende dat een rondvaart door de
+    Amsterdamse grachten met alle partners uit de Nordic-regio. Het was op en buiten de boot een uitstekende gelegenheid
+    om te netwerken en ons als vers beëdigd partner kenbaar te maken. Ik deed al nieuwe, internationale
+    HashiCorp-contacten op.</p>
+<figure class="mb-3">
+    <img alt="T-shirt" class="w-100" src="/img/blog/hashiconf-europe-2022/t-shirt.png">
+</figure>
+<h2>Dag #1</h2>
+<p>De twee dagen van de conferentie zelf had ik gezelschap van AT-collega Danny Kip en als eerste gang op het menu van
+    Dag #1 stond een openings keynote van onder andere Armon Dadgar (CTO en mede oprichter van HashiCorp) hij
+    presenteerde onder andere de volgende highlights en productnieuws.</p>
+<h3>HashiCorp Developer</h3>
+<p>Tot op heden staat de documentatie van de verschillende producten van HashiCorp vaak redelijk verspreid. Dit wordt nu
+    allemaal gecentraliseerd binnen
+    <a href="https://developer.hashicorp.com" target="_blank">developer.hashicorp.com</a>. Handig, want dit scheelt
+    zoeken.</p>
+<h3>Terraform</h3>
+<p>Aan Terraform zijn pre- / post conditions toegevoegd waarmee je van tevoren en achteraf kunt controleren of je
+    deployment functioneel werkt. Dit kan bij grote, complexe deployments niet alleen tijd besparen omdat je het niet
+    meerdere keren hoeft te doen, ook reduceert het de kans dat er iets in een productieomgeving misgaat.</p>
+<h4>Drift detection + Sentinel Policies (Terraform Cloud / Enterprise)</h4>
+<p>Voor de betaalde versies van Terraform komt een soort continue check beschikbaar die monitort of je “terraform plan”
+    nog steeds overeenkomt met de werkelijkheid. Wijkt er iets af? Dan kun je daarover gealarmeerd worden. Een andere
+    nieuwe feature is de mogelijkheid om binnen de Terraform registry kant en klare
+    <a href="https://docs.hashicorp.com/sentinel" target="_blank">Sentinel Policies</a> te downloaden.</p>
+<figure class="mb-3">
+    <img alt="Keynote" class="w-100" src="/img/blog/hashiconf-europe-2022/keynote.png">
+</figure>
+<p>HashiCorp co-founder/CTO Armon Dadgar aan het woord over Terraform.</p>
+<h3>Nomad</h3>
+<p>Voor clients die niet altijd online zijn, kun je binnen Nomad voortaan met <strong>Max_client_disconnect</strong> een
+    tijdspanne instellen waarbinnen er geen connectie hoeft te zijn (bijv. 24u). Een Nomad job zal hierdoor pas falen
+    nadat gedurende de ingestelde tijd geprobeerd is om de job uit te voeren. Dit kan bijvoorbeeld bij edge of IoT
+    toepassingen handig zijn.</p>
+<h4>Native service discovery &amp; health checks</h4>
+<p>Wil je klein beginnen met alleen Nomad en heb je nog geen kennis van Consul voor service discovery? Dan kun je nu met
+    Nomad zelf ook service discovery doen. Dit biedt een groeipad voor als je infra groter wordt en je toe bent aan
+    Consul. Dit kan al in de huidige versie 1.3. Om je service discovery zo actueel mogelijk te houden, wil je ook
+    health checks uitvoeren op je services, net zoals met Consul. Dat kan in Nomad vanaf versie 1.4. Let wel, in de
+    lightweight Nomad service discovery werkt resolving alleen binnen Nomad. Dit is niet van buiten te resolven zoals
+    Consul (zoals “servicename.service.consul”). Hier hebben wij samen met nog twee andere partners al een RFC voor
+    ingediend.</p>
+<h4>Simple load balancing</h4>
+<p>In een opkomende release in de 1.3 branch komt de mogelijkheid om binnen Nomad een vorm van basale load balancing toe
+    te passen, zonder dat je daarvoor gelijk een proxy naar binnen hoeft te fietsen zoals een HAProxy, nginx of Traefik.
+    Traefik 2.8 biedt directe Nomad support als provider. Hierdoor heb je niet meer gelijk een ConsulCatalog nodig, maar
+    kun je rechtstreeks tegen de NomadCatalog aanpraten. </p>
+<h4>Secure variables & Single sign-on</h4>
+<p> Een beetje in het verlengde van de native service discovery: ben je nog niet toe aan een full-blown Vault? Dan kun
+    je vanaf Nomad 1.4 gebruik maken van een eigen key/value store om daar secrets in op te slaan die je vervolgens
+    binnen je template stanza weer aan kan roepen. Om mensen toegang te geven tot Nomad moest dit tot nu toe altijd nog
+    via tokens, wat redelijk omslachtig werkt (tenzij je dynamische tokens via Vault gebruikt). Dit verandert in versie
+    1.4, waardoor je ook met oauth of github kunt authenticeren.</p>
+<h4>Easy swap</h4>
+<p>Voor zowel de nieuwe native service discovery als key/value store functionaliteit geldt dat je eenvoudig kunt
+    opschalen naar Consul en/of Vault. Het simpelweg wijzigen van slechts 1 regel code in je job stanza en het is
+    gepiept.</p>
+<h3>Waypoint</h3>
+<p>Het verdienmodel van HashiCorp is gebaseerd op
+    <a href="https://www.hashicorp.com/blog/navigating-the-new-hashicorp-enterprise-license-deployment-process"
+       target="_blank">Enterprise licenties</a> (voor Terraform, Nomad en Vault) en diensten vanuit het
+    <a href="https://cloud.hashicorp.com/" target="_blank">HashiCorp Cloud Platform</a> (HCP). Vanuit deze cloud levert
+    HashiCorp (een groot deel van) hun software oplossingen als hosted dienst. Vanaf nu is ook Waypoint als private bèta
+    beschikbaar binnen HCP. Je kunt je binnen HCP inschrijven om van de bèta gebruik te kunnen maken. Waypoint is een
+    tool waarmee je een grotere abstractie maakt voor developers, waardoor zij niet meer alle specifieke dingen van
+    bijvoorbeeld AWS, Kubernetes of GCP hoeven te weten. Ze kunnen in plaats daarvan werken met generieke blokken zoals
+    build, deploy, run, etc.</p>
+<h3>De diepte in</h3>
+<p>Na de keynote kon je kiezen uit allemaal verschillende sessies waarin dieper in de wereld van de HashiCorp producten
+    werd gedoken. Ook waren er praatjes van bedrijven die vertelden hoe zij de diverse HashiCorp producten hebben
+    geïmplementeerd. Aan het eind van de dag heb ik nog even kunnen praten met Armon Dadgar en hem natuurlijk verteld
+    over AT Computing en ons recente partnership.</p>
+<h2>Dag #2</h2>
+<p>Ook de tweede dag werd afgetrapt met een keynote door Armon Dadgar. Thema van deze dag is security (met Vault en
+    Boundary) en networking (met Consul).</p>
+<figure class="mb-3">
+    <img alt="Vault" class="w-100" src="/img/blog/hashiconf-europe-2022/vault.png">
+</figure>
+<h3>Vault</h3>
+<p>
+    Er wordt hard aan Vault gewerkt. Dat blijkt uit diverse nieuwe features die recent zijn of binnenkort worden
+    toegevoegd. Als eerste is er nu een <a href="https://openid.net/connect" target="_blank">OIDC</a> Identity Provider
+    beschikbaar. Voor wie met Kubernetes werkt is de K8s Secret Engine toegevoegd, waardoor je niet meer per se
+    Kubernetes secrets hoeft te gebruiken. Op gebied van compliance voldoet Vault nu aan de
+    <a href="https://csrc.nist.gov/publications/detail/fips/140/2/final" target="_blank">FIPFS 140-2</a> standaard van
+    NIST. Conformiteit met de 140-3 standaard staat op de roadmap. Om snel een PoC of demo te geven, heeft HashiCorp nu
+    test apps voor Vault, bijvoorbeeld deze app die is geschreven in
+    <a href="https://github.com/hashicorp/hello-vault-go" target="_blank">Go</a>.</p>
+<p>Wie met DB2 databases werkt kan nu vanuit Vault ook gebruik maken van dynamische secrets. Ook voor Google Cloud
+    Platform (GCP) is er wat nieuws toegevoegd. Je kunt nu binnen Vault gebruik maken van GCP key management. Voor
+    situaties waarbij een hoge mate van beveiliging gewenst is, wordt key generation en certificate signing nu
+    ondersteund richting externe
+    <a href="https://en.wikipedia.org/wiki/Hardware_security_module" target="_blank">HSM's</a>. Last but not least komt
+    de MFA optie die al in de Enterprise Edition aanwezig was nu ook beschikbaar in de open source/community edition.
+</p>
+<h3>Boundary</h3>
+<p>Een relatief nieuw project van HashiCorp is <a href="https://www.boundaryproject.io/" target="_blank">Boundary</a>.
+    Deze applicatie heeft als doel om veilige toegang op afstand eenvoudig te maken. Twee noemenswaardige nieuwe
+    features zijn support voor <a href="https://www.envoyproxy.io/" target="_blank">Envoy</a> proxies en het als public
+    beta toevoegen van Boundary aan HCP.</p>
+<h3>Consul</h3>
+<p>Op gebied van Consul zijn er drie noemenswaardige vernieuwingen. Als eerste Admin Partitions. Dit biedt een
+    multi-tenancy oplossing zonder dat je extra clusters hoeft te beheren. Je creëert eigenlijk virtuele Consul
+    instanties binnen hetzelfde Consul cluster, met daarop een RBAC laag. Cluster Peering is ook nieuw en zal op den
+    duur WAN Federation vervangen. Het zorgt ervoor dat teams hun eigen compute clusters kunnen beheren, terwijl je bij
+    WAN Federation één beheerder had.</p>
+<p>Onafhankelijke cluster keys zijn nu mogelijk. Voorheen was het zo dat als je meerdere Consul clusters wilde gaan
+    federeren (via WAN Federation) je eigenlijk één master key voor alle clusters had. Kon je als beheerder inloggen op
+    één cluster, dan kon je dat dus op alle clusters. Ook werden by default alle Consul services over het WAN
+    gepropageert. Dit hele model met Cluster Peering op de schop genomen, zodat het beheer van de verschillende clusters
+    decentraal kan worden gedaan en dat je expliciet aan moet geven welke services je gepropageerd wilt hebben.</p>
+<p>Als derde en laatste is Consul vanuit HCP nu ook te verbinden met Azure. Hiervoor is de publieke bèta gelanceerd en
+    is de planning dat de dienst vanaf 15 juli 2022 GA (General Available) wordt. Voorheen was de HCP variant van Consul
+    alleen te verbinden met AWS.</p>
+<figure class="mb-3">
+    <img alt="Pins" class="w-100" src="/img/blog/hashiconf-europe-2022/pins.png">
+</figure>
+<p>Er werd heel veel nieuws gepresenteerd, dus pin ons er niet op vast als we iets gemist hebben!</p>
+<p class="fst-italic">Net als op de eerste dag werd in de breakout sessies na de keynote dieper ingegaan op alle nieuwe
+    features. Terugkijkend waren het twee interessante dagen en ging ik naar huis met nieuwe kennis, opgedaan met nieuwe
+    kennissen. En een to-do lijst met veel features waar ik dieper in wil gaan duiken.</p>

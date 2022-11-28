@@ -1,0 +1,54 @@
+{{ define "main" }}
+<section class="container-fluid">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p><i class="bx bx-lg {{ .Params.icon }}"></i></p>
+    </header>
+    <p><a href="/#diensten"><i class='bx bx-chevrons-left'></i> Terug naar diensten</a></p>
+    {{ $contentParts := split .Content "<!-- split -->" }}
+    <div class="row">
+        <div class="col-lg-8">
+            <h1>{{ .Title }}</h1>
+            {{ index $contentParts 0 | safe.HTML }}
+            <hr class="my-5">
+            <p>Interesse in onze {{ .Title }}? Neem dan via ondederstaand formulier contact met ons op.</p>
+            <form action="https://formspree.io/f/mbjwjpwg" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Naam</label>
+                    <input class="form-control" id="name" name="name" required="required" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">E-mailadres</label>
+                    <input class="form-control" id="email" name="email" required="required" type="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="subject">Onderwerp</label>
+                    <input class="form-control" id="subject" name="subject" required="required" type="text"
+                           value="{{ .Title }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="message">Bericht</label>
+                    <textarea class="form-control" id="message" name="message" required="required" rows="5"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Verzenden</button>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            {{ index $contentParts 1 | safe.HTML }}
+
+            <div class="card mb-3">
+                <h2 class="card-header">$ wat zijn de andere diensten?</h2>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        {{ range where (where .Site.RegularPages "Type" "diensten") ".RelPermalink" "ne" .RelPermalink }}
+                        <li>
+                            <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,47 @@
+{{ define "main" }}
+<section class="container-fluid" id="blog-posts">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p class="subtitle">Dit is ons <span>blog</span></p>
+        <p>Als we in de (digitale) pen kruipen dan lees je dat hier.</p>
+    </header>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 order-md-2">
+            <div class="card mb-3">
+                <h2 class="card-header">$ tags</h2>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        {{ $allTags := slice }}
+                        {{ range .Site.RegularPages }}
+                        {{ range (.GetTerms "tags") }}
+                        {{ $allTags = $allTags | append (dict "LinkTitle" .LinkTitle "Permalink" .Permalink) }}
+                        {{ end }}
+                        {{ end }}
+                        {{ range uniq $allTags }}
+                        <li>
+                            <a href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8">
+            <ul class="list-unstyled row">
+                {{ range(where .Site.RegularPages "Type" "blog") }}
+                <li class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                    <a href="{{ .RelPermalink }}">
+                        <div class="card h-100">
+                            <img alt="{{ .Title }}" class="card-img-top" src="{{ .Params.header_image }}">
+                            <div class="card-body">
+                                <h6 class="card-title mb-0">{{ .Title }}</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</section>
+{{ end }}

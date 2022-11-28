@@ -1,0 +1,218 @@
+---
+title: Kuberkeuzes
+date: 2022-02-10T12:55:00
+layout: blog/single
+header_image: /img/blog/kuberkeuzes/header.png
+tags:
+- Containers
+tools:
+- Kubernetes
+- K3s
+- K9s
+- Otomi
+- OpenShift
+- ArgoCD
+- Rancher
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english-course/" target="_blank">Kubernetes Fundamentals</a>
+- <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-cka-extension-english-course/" target="_blank">Kubernetes CKA Extension</a>
+---
+<p class="fst-italic">Het was in 2014 dat een groep (voormalig) Google techneuten hun project genaamd Kubernetes aan de
+    wereld presenteerden. Kubernetes is geïnspireerd op Google's Borg-systeem en is bedoeld als platform om applicatie
+    containers op te laten draaien. In de begintijd werd dit gedaan op basis van de Docker runtime, maar sinds medio
+    2016 is Container Runtime Interface (CRI) de standaard runtime interface voor containers. Hierop kunnen alle
+    OCI-compatibele containers draaien.*</p>
+<p>Containers hebben diverse handige eigenschappen. Ze zijn, zoals de naam container al doet vermoeden, portabel (alles
+    wat nodig is voor de applicatie zit in de container), kunnen snel starten/stoppen en kunnen "read only" worden
+    ingezet. Dat is een handige security-feature. Met Kubernetes krijgt een container "superkrachten": op- en afschalen,
+    fouttoleratie/redundantie, automatisch herstarten, uitgebreide netwerk- en routeringsmogelijkheden, moeiteloos naast
+    elkaar draaien van (honderd?)duizenden containers... Kubernetes draait z'n hand er niet voor om. Wil je meer over de
+    eigenschappen van Kubernetes lezen? Check ons eerdere <a href="/blog/wat-is-kubernetes">blog</a> of de officiele
+    <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> website.</p>
+<p>Alle pracht en praal van Kubernetes heeft (uiteraard) ook een keerzijde. Kubernetes is niet het meest eenvoudige stuk
+    gereedschap om te installeren, configureren en beheren. Wie
+    <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way" target="_blank">Kubernetes the hard</a> way van
+    Kelsey Hightower wel eens heeft doorlopen (of bekeken) kan dit beamen.</p>
+<p> Dit gegeven is IT-dienstverleners, vendoren, (open source) ontwikkelaars en de cloud-reuzen natuurlijk niet ontgaan.
+    Er zijn dan ook diverse Kubernetes "spin offs" en "add ons" op de markt die allemaal op hun eigen manier proberen om
+    het Kubernetes-leven aangenamer te maken. Hartstikke mooi natuurlijk, maar welke Kubernetes-variant kun je nu het
+    beste kiezen voor jouw situatie? We hopen je met onderstaande uiteenzetting een handje te helpen.</p>
+<h2>Thuis, lab-omgeving op kantoor, kleinschalige zakelijke toepassingen of edge deployment: Minikube &
+    <img src="/img/blog/kuberkeuzes/k3s.svg" alt="K3s" height="50"></h2>
+<p>Wie niet met een Kubernetes-kanon op een container-mug wil schieten, kan om een heleboel toeters en bellen van
+    Kubernetes heen. Met <a href="https://minikube.sigs.k8s.io/docs/" target="_blank">Minikube</a> en
+    <a href="https://k3s.io/" target="_blank">K3s</a> zijn er twee alternatieven die nog steeds een groot aantal
+    voordelen van Kubernetes te bieden hebben, maar installatie en gebruik sterk vereenvoudigen. Uiteraard lever je daar
+    wel een stuk(je) aan configuratie-mogelijkheden en controle voor in, maar voor diverse vormen van gebruik is dat
+    helemaal niet erg. Test- of lab-omgevingen, kleinschalige implementaties: perfect voor deze twee dwergen! Beide
+    projecten hebben een eigen doelgroep. Minikube richt zich op ontwikkelaars (die zich vooral niet bezig willen houden
+    met allerlei IT-infra zaken) en beginnende Kubernetes gebruikers. K3s zet zichzelf neer als productiewaardig
+    platform voor omgevingen die beperkt zijn op gebied van resources: mobiele apparatuur, appliances, apparatuur met
+    ARM-processoren, edge computing / edge datacenters en IoT toepassingen. K3s kan daarmee perfect als
+    “satellietstation” dienen van een groot Kubernetes-cluster dat in het eigen datacenter of bij een cloud-provider
+    draait.</p>
+<p>Hoe snel/eenvoudig je k3s up-and-running hebt?</p>
+<code class="d-block mb-3">
+    $ curl -sfL https://get.k3s.io | sh -<br>
+    <span class="text-muted"># Check for Ready node, takes maybe 30 seconds</span><br>
+    $ k3s kubectl get node
+</code>
+<h2>On-premises op grootzakelijk / enterprise schaal en alles in eigen hand: Kubernetes of
+    <img src="/img/blog/kuberkeuzes/openshift.png" height="80" alt="OpenShift">
+</h2>
+<p>Voor orkestratie-grootverbruikers en container-mastodonten die zoveel mogelijk controle willen en (nagenoeg) alles in
+    eigen beheer hebben draaien zijn er momenteel eigenlijk twee opties: Kubernetes of Red Hat OpenShift. In beide
+    gevallen geldt dat het raadzaam is om te zorgen dat er adequate kennis en/of support beschikbaar is voor de
+    omgeving. Dit kan natuurlijk uit eigen gelederen komen, maar ook zijn er diverse partijen in de markt die support-
+    of implementatie-diensten aanbieden of op basis van consultancy hulp kunnen bieden (zoals AT Computing). In het
+    geval van Kubernetes komen hier geen kosten bij kijken in de vorm van subscriptions. Het is 100% gratis te
+    gebruiken, zonder beperkingen op welke manier ook. Het is echter wel “garantie tot aan de deur” en vanuit het
+    Kubernetes project wordt geen ondersteuning of garantie geboden. Dat zou dus van een derde partij moeten komen en
+    dat is precies waar Red Hat met OpenShift op mikt.</p>
+<p>Net zoals met Red Hat Enterprise Linux, biedt Red Hat met OpenShift een grootzakelijke, volledige ondersteunde
+    oplossing op basis van Kubernetes. Red Hat zorgt voor updates, heeft 24/7 manschappen klaar staan en kan indien
+    gewenst ook de implementatie, migratie of upgrades voor haar rekening nemen (nou ja, de spreekwoordelijke rekening
+    dan. Er volgt wel gewoon een factuur voor het geleverde werk). OpenShift kan worden gezien als een
+    Kubernetes-on-steroids-suite die de uitrol van applicaties, het beheer van de omgeving, monitoring en beveiliging op
+    enterprise-schaal vereenvoudigd. OpenShift is, net als alle andere software van Red Hat, volledig open source, maar
+    voor zakelijk gebruik geldt een subscription- of pay-per-use model en is daarmee in tegenstelling tot Kubernetes
+    niet gratis bruikbaar.</p>
+<p>Meer weten? Red Hat vertelt je in
+    <a href="https://www.youtube.com/watch?v=5dwMrFxq8sU" target="_blank">dit filmpje</a> in precies 2 min en 22
+    seconden de belangrijkste eigenschappen van OpenShift. Heb je wat meer tijd dan kun je
+    <a href="https://cloud.redhat.com/learn/what-is-openshift" target="_blank">hier</a> in alle rust beginnen met
+    lezen.</p>
+<h2>Grootzakelijke / enterprise schaal en draaiend in de public cloud: AKS, EKS, GKE "Kubernetes as a Service" of
+    OpenShift</h2>
+<p class="text-center">
+    <img src="/img/blog/kuberkeuzes/aks.svg" alt="AKS" height="150">
+    <img src="/img/blog/kuberkeuzes/eks.svg" alt="EKS" height="150">
+    <img src="/img/blog/kuberkeuzes/gke.svg" alt="GKE" height="150">
+</p>
+<p>"Wel de lusten, niet de lasten" kan een eenvoudige, maar zeer waardevolle keuze zijn die ertoe leidt dat je
+    Kubernetes als kant-en-klare dienst afneemt in de reusachtige public cloud omgevingen van "de grote drie": Amazon,
+    Microsoft en Google.</p>
+<p>Amazon levert vanuit haar AWS Cloud EKS: Elastic Kubernetes Service. Microsoft heeft de dienst in Azure AKS gedoopt:
+    Azure Kubernetes Service. Google op haar beurt noemt het GKE: Google Kubernetes Engine. Medium.com heeft een <a
+            href="https://medium.com/swlh/state-of-managed-kubernetes-2020-4be006643360" target="_blank">goed
+        artikel</a> geschreven met overeenkomsten en verschillen tussen de drie diensten. Voor wie geen al te bijzondere
+    eisen heeft kan simpelweg gezegd worden dat de grote providers qua functionaliteit en mogelijkheden geen duimbreed
+    van elkaar wijken. Gezien de "cloud war" nog volop gaande is, is dat niet zo gek. Ze houden elkaar minutieus in de
+    smiezen. Wil je productie gaan draaien dan is het natuurlijk aan te bevelen om de drie grootmachten eens goed onder
+    de loep te nemen om zo een verstandige keus te kunnen maken, maar wil je simpelweg eens ervaring opdoen met een
+    Kubernetes dienst dan is het advies “kies er gewoon eentje en gas erop!”</p>
+<p>Oh ja….We zouden het bijna vergeten, maar…. Red Hat levert ook nog OpenShift vanuit de IBM cloud. Ja, ook IBM heeft
+    een public cloud.</p>
+<h3>Hybride omgeving (on-premises + (public) Cloud): Kubernetes, OpenShift of Rancher
+    <img src="/img/blog/kuberkeuzes/rancher.svg" height="100" alt="Rancher">
+</h3>
+<p>Annu 202* hebben veel bedrijven een hybride IT-landschap. Een deel van de servers en applicaties staat nog in eigen
+    datacenters, bij hosting providers (al dan niet in een private cloud) en een ander deel draait in een public cloud.
+    Omdat een van de grote voordelen van containers is dat ze portabel zijn, is het relatief eenvoudig om een
+    Kubernetes-omgeving op te zetten waarbij een deel van het cluster lokaal en een deel in een cloud / gehost draait.
+    Zo kun je bijvoorbeeld je ontwikkel- en staging-omgeving in een public cloud draaien, maar productie in je eigen
+    datacenter. Of juist andersom. Voor dit scenario zijn er diverse opties, waarbij het in 2020 door Suse overgenomen
+    <a href="https://rancher.com/" target="_blank">Rancher Labs</a> aardig voet aan de grond heeft gezet. Met Rancher
+    kun je je volledige Kubernetes-omgeving op eenvoudige en eenduidige wijze beheren, waar je pods ook draaien.</p>
+<p>Meer weten? Dan kan bij Rancher in minder dan twee minuten middels <a
+        href="https://www.youtube.com/watch?v=nRVBNkcr4eM" target="_blank">dit filmpje</a>. Zijn ze Red Hat toch mooi 30
+    seconden te snel af! Heb je iets meer tijd dan kun je <a href="https://www.youtube.com/watch?v=_dn4c9j7LUo"
+                                                             target="_blank">hier</a> in een kwartiertje horen wat er
+    allemaal in Rancher 2.6 te vinden is.</p>
+<p>Nota bene: er zijn naast de in dit blog genoemde grote cloud-providers natuurlijk ook talloze andere/kleinere
+    datacenter-dienstverleners, hosting-providers en IT-dienstverleners die managed Kubernetes diensten aanbieden. Die
+    hebben we natuurlijk niet allemaal onder de loep genomen. Heb je hier interesse in? Vraag dan vooral bij de door jou
+    beoogde dienstverlener naar de (on)mogelijkheden!</p>
+<h2>Training & Certificering</h2>
+<p>Voor IT-pro’s die hun brood (willen) verdienen met Kubernetes kan het interessant zijn om training te volgen en/of
+    certificering te behalen. Er zijn hier momenteel twee opties die mondiaal de toon zetten. De eerste is certificering
+    van de Linux Foundation, waar je momenteel kunt kiezen uit drie smaken: CKA, CKAD en CKS. Training ter voorbereiding
+    op het CKAD en CKA examen kun je onder andere bij AT Computing volgen.</p>
+<p>De tweede optie is
+    <a href="https://www.redhat.com/en/resources/openshift-skill-paths-brief" target="_blank">OpenShift</a>
+    certificering via Red Hat: de EX180, EX280 of EX288. Je kunt hiervoor diverse officiele Red Hat trainingen volgen
+    (zoals
+    <a href="https://www.vijfhart.nl/opleidingen/do180-red-hat-openshift-i-containers-kubernetes-nl/" target="_blank">DO180</a>
+    of
+    <a href="https://www.vijfhart.nl/opleidingen/do280-red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster-uk/"
+       target="_blank">DO280</a>), je via zelfstudie voorbereiden of middels e-learning met een
+    <a href="https://www.vijfhart.nl/opleidingen/ls220-red-hat-learning-subscription-standard/" target="_blank">Learning
+        Subscription</a>. Misschien heb je het al aan de linkjes gezien, maar onze zuster
+    <a href="https://vijfhart.nl/" target="_blank">Vijfhart IT-Opleidingen</a> is officieel Red Hat Training Partner en
+    kan je daardoor voorzien van de officiële Red Hat trainingen om jouw examen succesvol af te leggen.</p>
+<h2>Hoe zit het met certificering voor EKS, GKE en AKS?</h2>
+<p>Het is opvallend te noemen dat geen van de grote cloud-providers op dit moment een certificering biedt voor hun
+    Kubernetes dienst. Bij Google en Microsoft is er zelfs niet eens een AKS/GKE specifieke training. Er worden over
+    AKS/GKE alleen vragen gesteld als onderdeel van andere examens (op gevorderden niveau). Hoe leer je er dan mee
+    werken? Nou, ze bieden ieder een uitgebreide tutorial beschikbaar waar je (gratis) veel ins en outs van de service
+    ziet. Check
+    <a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/" target="_blank">GKE</a> en
+    <a href="https://azure.microsoft.com/en-us/resources/kubernetes-learning-and-training/#overview"
+       target="_blank">AKS</a>.</p>
+<p>Amazon biedt wel een EKS specifieke, driedaagse training. Details daarover vind je
+    <a href="https://www.aws.training/SessionSearch?pageNumber=1&courseId=53846" target="_blank">hier</a>, maar ook
+    deze training leidt zoals gezegd (nog) niet op tot certificering.</p>
+<h2>Wacht! Er is meer...</h2>
+<p>Hoewel je kunt stellen dat Kubernetes inmiddels de mainstream status wel heeft bereikt, staan de ontwikkelingen alles
+    behalve stil. Nog steeds worden er nieuwe tools rondom Kubernetes geïntroduceerd om het leven nog verder te
+    vereenvoudigen, specifieke toepassingen mogelijk te maken of veel voorkomende operationele taken te automatiseren
+    met Operators. Nieuwsgierig?
+    <a href="https://www.redhat.com/en/topics/containers/what-is-a-kubernetes-operator" target="_blank">Hier</a> vind je
+    een goed artikel van Red Hat over Operators en <a href="https://operatorhub.io/" target="_blank">hier</a> kun je een
+    uitgebreid assortiment aan bestaande operators vinden.</p>
+<p>Een andere handige, maar ook wel grappige toevoeging is <a href="https://k9scli.io/" target="_blank">K9s</a>
+    (Kubernetes wordt vaak tot K8s afgekort, omdat er 8 letters tussen de K en de s zitten….). Deze CLI-tool stelt je in
+    staat om eenvoudig de belangrijkste informatie uit jouw Kubernetes-cluster op een mensvriendelijke manier weer te
+    geven.</p>
+<figure class="mb-3 text-center">
+    <img src="/img/blog/kuberkeuzes/argocd.svg" height="150" alt="ArgoCD">
+</figure>
+<p>Wil je bezig gaan met GitOps en Kubernetes als landingsplaats voor jouw deployments gebruiken? Met
+    <a href="https://argo-cd.readthedocs.io/en/stable/" target="_blank">ArgoCD</a> kun je je deployments visualiseren
+    en automatisch laten synchroniseren met een git-repo. Op die manier waakt er een inktvis automatisch over je
+    omgeving en voorkom je dat er ongeplande of ongewenste wijzigingen in je deployment optreden wanneer er toch iemand
+    met zijn of haar tentakeltjes aan je K8s-cluster zit....</p>
+<p>Edge Computing is een serieuze trend. K8s kan hiermee uit de voeten door toepassing van K3s. Voor OpenShift heeft Red
+    Hat recent een onderzoeksproject opgetuigd onder de naam
+    <a href="https://microshift.io/" target="_blank">MicroShift</a>. Met MicroShift heeft Red Hat het doel om de kracht
+    van OpenShift naar de edge te brengen en vooral een coherent platform te bieden voor ontwikkeling en deployment van
+    applicaties, ongeacht waar ze uiteindelijk draaien (zolang het een Kubernetes/OpenShift platform betreft). Een kort
+    introductiefilmpje over MicroShift vind je
+    <a href="https://www.youtube.com/watch?v=QOiB8NExtA4" target="_blank">hier</a>.</p>
+<figure class="mb-3 text-center">
+    <img src="/img/blog/kuberkeuzes/otomi.svg" height="150" alt="Otomi">
+</figure>
+<p>Als allerlaatste zetten we de spotlights op een interessant stuk software van eigen bodem: <a
+        href="https://otomi.io/" target="_blank">Otomi</a>. Dit is feitelijk een hele suite van verschillende (open
+    source) applicaties die zijn gebundeld tot een samenwerkend geheel. Je hebt hiermee binnen een mum van tijd een
+    productierijp, op Kubernetes gebaseerd IT-platform draaien waar alle integratie en configuratie van alle betrokken
+    tools al voor je is geregeld. Best practice out of the box. Het grote voordeel is dat je hierdoor substantieel
+    minder tijd kwijt bent met het neerzetten en aan elkaar knopen van alle tools. Het nadeel is dat je keuzevrijheid
+    enigszins beperkt is door wat Redkubes (de maker van Otomi) voor je bedacht of gebouwd heeft.</p>
+<figure class="mb-3 text-center">
+    <img src="/img/blog/kuberkeuzes/tanzu.png" height="150" alt="Tanzu">
+</figure>
+<p>Wie een VMWare omgeving heeft draaien, zou eens naar Tanzu kunnen kijken. Dit op Kubernetes gebaseerde platform
+    belooft een consistente, multi-cloud developer experience. Je kunt met Tanzu flexibel gecontaineriseerde woekloads
+    draaien op VMWare in je eigen datacenter of in een compatibele (public) cloud omgeving. Op deze manier belooft
+    VMWare het beste van de twee werelden. Meer weten? Check dan
+    <a href=" https://tanzu.vmware.com/tanzu" target="_blank">deze</a> website.</p>
+<h2><img src="/img/logo/logo.png" alt="AT Computing" height="60"> & Kubernetes</h2>
+<p>Als open source specialist kan AT Computing natuurlijk niet om Kubernetes heen. Dat doen we dus ook niet! Bovendien
+    helpen we je met onze trainingen
+    <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english-course/" target="_blank">Kubernetes
+        Fundamentals</a> (3 dagen) en de
+    <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-cka-extension-english-course/"
+       target="_blank">CKA Extension</a> (1 dag) goed op weg om je CKAD en/of CKA certificering te behalen. Als
+    trainingspartner van de Linux Foundation kunnen wij bovendien de
+    <a href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-application-developer-ckad-examenvoucher/"
+       target="_blank">CKAD</a> /
+    <a href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-administrator-cka-examenvoucher/"
+       target="_blank">CKA</a> examenvouchers leveren.</p>
+<p>Heb je hulp nodig bij implementatie of zoek je advies voordat je met Kubernetes aan de slag gaat? We staan voor je
+    klaar. Stuur een e-mail naar info@atcomputing.nl en we nemen contact met je op om vrijblijvend jouw situatie en
+    wensen te bespreken.</p>
+<p class="fst-italic">* Kubernetes kan met verschillende Container Runtime Interfaces overweg: containerd, CRI-O en op
+    moment van schrijven ook die van Docker. De interfaces benutten op hun beurt weer de Open Container Initiative (OCI)
+    runtime. Omdat Docker containers OCI-compatible zijn, kun je in de praktijk nog steeds zonder problemen je
+    Docker-containers op Kubernetes laten landen.</p>

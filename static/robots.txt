@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/files/
+
+User-agent: *
+Allow: /

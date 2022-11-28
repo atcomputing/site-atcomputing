@@ -1,0 +1,14 @@
+baseURL: "http://atcomputing.nl.local/"
+title: "AT Computing"
+disableKinds: ["sitemap", "RSS"]
+taxonomies:
+  tag: tags
+permalinks:
+  tags: /blog/tag/:slug/
+params:
+  dateFormat: "2006-01-02T15:04:05 CET"
+resourceDir: ".resources"
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

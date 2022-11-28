@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="container-fluid">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p class="subtitle">{{ safeHTML .Params.subtitle }}</p>
+        <p>{{ safeHTML .Params.intro }}</p>
+    </header>
+    <div class="container-fluid">
+        {{ .Content }}
+    </div>
+</section>
+{{ end }}

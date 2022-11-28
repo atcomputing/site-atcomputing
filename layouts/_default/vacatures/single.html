@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="container-fluid">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p class="subtitle">Word jij onze <span>collega</span>?</p>
+        <p>Wie weet zoeken we jou wel niet.</p>
+    </header>
+    <p><a href="/vacatures"><i class='bx bx-chevrons-left'></i> Terug naar vacatures</a></p>
+    {{ .Content }}
+    <h2>Heb je helemaal tot hier gelezen?</h2>
+    <p>Super! Stuur ons dan per e-mail je CV en een goed verhaal waarom we van jou een AT-er moeten maken. We zien je
+        bericht graag tegemoet via <a href="mailto:hr@atcomputing.nl">hr@atcomputing.nl</a>.</p>
+    <p>Heb je vragen of wil je ons telefonisch overhalen om je voor een kennismaking uit te nodigen? Bel dan met Katja
+        Galiart via telefoonnummer <a href="tel:+31243527282">024–352 72 82</a>.</p>
+</section>
+{{ end }}
