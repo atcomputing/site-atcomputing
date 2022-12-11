@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="container-fluid" id="vacatures">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p><img alt="{{ .Title }}" class="w-100" src="{{ .Params.header_image }} "></p>
+    </header>
+    {{ .Content }}
+    <div class="row card-columns">
+        {{ range(where .Site.RegularPages "Type" "vacatures").ByDate }}
+        <div class="col-lg-4">
+            <div class="card at-collapse at-collapse-open">
+                <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
+                    {{ .Title }}
+                    <span>
+                        <img alt="AT Computing logo" src="/img/logo/arrow.png">
+                    </span>
+                </h2>
+                <div class="card-body at-collapse-target flex-column">
+                    <p>{{ .Summary }}</p>
+                    <p class="mb-0">
+                        <a href="{{ .RelPermalink }}">Bekijk hier de vacature</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
