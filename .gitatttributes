@@ -1,0 +1,19 @@
+## Git Settings
+# text=auto : All files are checked into the repo with LF line endings
+# eol=lf    : Files are checked out using LF locally
+* text=auto  eol=lf
+
+# Images are considered binary
+*.jpg binary
+*.mp4 binary
+*.pdf binary
+*.png binary
+*.svg binary
+
+# Marks the file types as text and specify line endings
+*.html text eol=lf
+*.js text eol=lf
+*.md text eol=lf
+*.scss text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
