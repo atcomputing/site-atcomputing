@@ -1,0 +1,315 @@
+---
+title: HashiCorp Updates
+date: 2023-04-17T14:00:00
+layout: blog/single
+header_image: /img/blog/hashicorp-updates/header.png
+tags:
+  - HashiCorp
+tools:
+  - Vault
+  - Nomad
+  - Consul
+  - Terraform
+  - Boundary
+  - Waypoint
+---
+
+<h1>HashiCorp Updates</h1>
+<p>
+  <i>
+    HashiCorp heeft de afgelopen weken allemaal nieuwe releases uitgebracht van
+    hun software. Hier zie je de belangrijkste en/of leukste wijzigingen.
+  </i>
+</p>
+
+<!-- BEGIN -->
+
+<!-- Vault -->
+<div class="blog mb-3">
+  <h2>Vault v1.13.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">PKI verbeteringen</li>
+  <p>
+    Er is een UI in beta uitgebracht die je een duidelijker overzicht geeft van
+    de verschillende flows.
+  </p>
+
+  <li class="fw-bold">Secret sharing over namespaces heen (Enterprise)</li>
+  <p>
+    Nu kun je secrets over namespaces heen delen. Dit werkt ook door op Vault
+    Agent.
+  </p>
+
+  <li class="fw-bold">User lockout</li>
+  <p>
+    Eigenlijk het bekende principe; probeer je te vaak in te loggen met
+    verkeerde gegevens, dan word je tijdelijk gelocked. Deze details kun je
+    specificeren in een config file, waarbij je bepaalde waarden kunt
+    overschrijven. Denk hierbij aan een situatie dat je een
+    <samp>lockout_duration</samp> van 40 minuten globaal hebt, maar dat je voor
+    <samp>userpass</samp> de <samp>lockout_duration</samp> op 20 minuten
+    instelt.
+  </p>
+
+  <li class="fw-bold">OSCP support voor de TLS auth method</li>
+  <p>
+    Je kunt nu op ingetrokken certificaten controleren met het OSCP protocol.
+  </p>
+
+  <li class="fw-bold">Event system (alpha)</li>
+  <p>
+    Er is een start gemaakt met een event system, waarbij custom events
+    weggeschreven kunnen worden door secret engines en plugins. Op dit moment
+    wordt het uitgetest met de KV secrets engine
+  </p>
+
+  <li class="fw-bold">Kubernetes secrets engine in de UI</li>
+  <p>
+    De K8S secrets engine is nu ook in de UI te beheren. Eerder kon dit alleen
+    nog via de CLI. En zoals bij zoveel van de secrets engines en auth methods:
+    wil je de volledige controle, doe dit dan via ofwel de CLI ofwel de API. De
+    UI heeft niet alle features van alle componenten in zich.
+  </p>
+
+  <li class="fw-bold">Diverse bugfixes</li>
+  <p>
+    Zoals in elke release zijn er ook de nodige bugs gefixed. In deze release
+    onder andere een Kubernetes authentication fix, maar nog veel meer. Kijk
+    <a
+      href="https://github.com/hashicorp/vault/blob/main/CHANGELOG.md#1130"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- Consul -->
+<div class="blog mb-3">
+  <h2>Consul v1.15.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">Geen officiële Dockerhub images meer</li>
+  <p>
+    Vanaf Consul 1.16, stopt men met het uitleveren van officiële Dockerhub
+    images, maar verschijnen ze alleen onder hun eigen Verified Publisher.
+    Gebruik je ergens in je code een <samp>docker pull consul</samp>? Verander
+    dat dan naar <samp>docker pull hashicorp/consul</samp>.
+  </p>
+
+  <li class="fw-bold">UI updates</li>
+  <p>
+    Er zijn wat kleine veranderingen aangebracht in de UI van Consul, waardoor
+    het net nog iets beter smoelt.
+  </p>
+
+  <li class="fw-bold">API Gateway (Beta)</li>
+  <p>
+    Deze beta versie ondersteunt een API gateway op VM's. API Gateway is een
+    ingress voor een Consul netwerk.
+  </p>
+
+  <li class="fw-bold">Troubleshoot commando's</li>
+  <p>
+    Er zijn nu de commando's <samp>consul troubleshoot upstreams</samp> en
+    <samp>consul troubleshoot proxy</samp> bij gekomen die het een en ander wat
+    makkelijker maken als je moet troubleshooten in je service mesh
+    configuratie.
+  </p>
+
+  <li class="fw-bold">Bug fixes</li>
+  <p>
+    Kijk
+    <a
+      href="https://github.com/hashicorp/consul/releases/tag/v1.15.0"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- Nomad -->
+<div class="blog mb-3">
+  <h2>Nomad v1.5.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">Single sign-on middels OIDC</li>
+  Je kunt nu middels een OIDC provider met single-signon doorhoppen naar Nomad.
+
+  <li class="fw-bold">Dynamic node metadata</li>
+  <p>
+    Als je custom metadata gebruikt voor je nodes (denk bijv. aan een rack
+    aanduiding of een zaalnummering) dan moest je dit in de configuratiefile
+    veranderen en Nomad opnieuw opstarten. Dit hoeft nu niet meer: je kunt dit
+    nu rechtstreeks via de API wijzigen.
+  </p>
+
+  <li class="fw-bold">Job templates</li>
+  Het is nu nog makkelijker geworden om te starten met een Nomad job. Je kunt nu
+  namelijk gebruik maken van Job Templates, die een viertal verschillende jobs
+  voor je kunt maken. Ideaal om snel even een jobspec in elkaar te zetten.
+
+  <li class="fw-bold">Access control list (ACL) policies en tokens in de UI</li>
+  <p>
+    De UI heeft nu ook een stukje gekregen waarin je je ACL policies kunt
+    inzien, wijzigen maar ook kunt maken. Je krijgt dan gelijk een mooi
+    voorbeeld te zien wat je dan naar je eigen hand kunt zetten. Ook kun je voor
+    een specifieke policy een "test-token" maken. Dit is een token met een TTL
+    van 10 minuten, zodat je je policy even uit kunt testen. Om dit alles te
+    kunnen zien moet je wel zijn ingelogd met een management token.
+  </p>
+
+  <li class="fw-bold">UI block</li>
+  <p>
+    Het is nu mogelijk om een <samp>ui</samp> stanza in je Nomad configuratie
+    file erbij te zetten, die er voor zorgt dat je vanuit Nomad kunt deeplinken
+    naar zowel Consul als Vault (in de bovenste balk van de UI) en ook nog een
+    mooi notificatieblokje weer kan geven, zodat als je met meerdere Nomad
+    clusters werkt, makkelijk op basis van bijv. kleur kan herkennen op welk
+    cluster je nu zit.
+  </p>
+  <p>
+    Onderstaande code:
+    <img class="img-fluid" src="img/hashi-nomad-ui-code.png" />
+  </p>
+  <p>
+    Resulteert in de volgende UI balk:
+    <img class="img-fluid" src="img/hashi-nomad-ui.png" />
+  </p>
+  <li class="fw-bold">Bug fixes</li>
+  <p>
+    Kijk
+    <a
+      href="https://github.com/hashicorp/nomad/releases/tag/v1.5.0"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- Terraform -->
+<div class="blog mb-3">
+  <h2>Terraform v1.4.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">terraform_data in plaats van null_resource</li>
+  <p>
+    De <samp>null</samp> provider wordt vaak in Terraform plans gebruikt voor
+    speciale doeleinden. Nu hoef je er geen extra provider meer voor te laden,
+    je kunt nu een <samp>null_resource</samp> vervangen door een native
+    <samp>terraform_data</samp> resource.
+  </p>
+
+  <li class="fw-bold">Ondersteuning voor OPA</li>
+  <p>
+    De Open Policy Agent wordt nu ondersteund in CLI-runs met Terraform Cloud.
+    Hiermee kun je nog meer controle uitoefenen op je workflows en kun je een
+    beetje zien als de tegenhanger van een Sentinel policy.
+  </p>
+
+  <li class="fw-bold">Verbeterde TFC output</li>
+  <p>
+    De output die Terraform Cloud (TFC) teruggeeft aan de gebruiker is
+    verbeterd. Dit was altijd al zo voor workflows die via de UI werden gestart,
+    maar dit is nu ook mogelijk gemaakt voor de CLI gebaseerde workflows.
+  </p>
+
+  <li class="fw-bold">Terraform plan</li>
+  <p>
+    Terraform plan kan nu ook een plan wegschrijven wanneer er een fout op is
+    getreden. Dit kan handig zijn in je troubleshoot proces.
+  </p>
+
+  <li class="fw-bold">Bug fixes</li>
+  <p>
+    Kijk
+    <a
+      href="https://github.com/hashicorp/terraform/releases/tag/v1.4.0"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- Boundary -->
+<div class="blog mb-3">
+  <h2>Boundary v.0.12.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">Direct Address Targets</li>
+  <p>
+    Je kunt nu een adres direct koppelen aan een target, zonder dat je iets van
+    host catalogs, host sets of hosts hoeft te gebruiken.
+  </p>
+
+  <li class="fw-bold">Metrics</li>
+  <p>Kleine verbeteringen in hun metrics schema.</p>
+
+  <li class="fw-bold">JSON credentials in de UI</li>
+  <p>
+    Je kunt nu ook JSON credentials gebruiken in de UI. Dat maakt het soms net
+    iets makkelijker om dingen voor elkaar te krijgen.
+  </p>
+
+  <li class="fw-bold">Multi-Hop sessies (HCP)</li>
+  <p>
+    Je kunt deze multi-hop PKI workers met elkaar laten praten voor zowel
+    authenticatie als een sessie-proxy. Zo kun je ze als het ware aan elkaar
+    knopen en kun je op die manier verbindingen bewerkstelligen die door
+    meerdere lagen van je netwerk heen gaan. Maar deze functionaliteit is alleen
+    voor het HashiCorp Cloud Platform (HCP) beschikbaar.
+  </p>
+
+  <li class="fw-bold">Vault credential library</li>
+  <p>
+    Je kunt nu gebruik maken van de SSH secrets engine van Vault om private- en
+    public ssh keys te genereren.
+  </p>
+
+  <li class="fw-bold">Bug fixes</li>
+  <p>
+    Kijk
+    <a
+      href="https://github.com/hashicorp/boundary/releases/tag/v0.12.0"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- Waypoint -->
+<div class="blog mb-3">
+  <h2>Waypoint v.0.11.0</h2>
+</div>
+<ul>
+  <li class="fw-bold">CLI verbeteringen</li>
+  <p>
+    Door onder andere de toevoeging van het <samp>waypoint job cancel</samp> en
+    het <samp>waypoint job list</samp> commando.
+  </p>
+
+  <li class="fw-bold">Nomad integratie</li>
+  <p>
+    Je kunt Waypoint uiteraard met Nomad integreren, maar er zat nog wel een
+    vervelende bug in waardoor het installatiescript op het einde geen connectie
+    kon maken met de Waypoint server op Nomad.
+  </p>
+
+  <li class="fw-bold">Bug fixes</li>
+  <p>
+    Kijk
+    <a
+      href="https://github.com/hashicorp/waypoint/releases/tag/v0.11.0"
+      target="_blank"
+      >hier</a
+    >
+    voor de volledige release notes.
+  </p>
+</ul>
+
+<!-- END -->

@@ -1,0 +1,199 @@
+---
+title: Lekker kort!
+date: 2023-05-08T15:00:00
+layout: blog/single
+header_image: /img/blog/lekker-kort/header.jpg
+tags:
+  - Linux
+  - tips
+  - CLI
+  - UNIX
+tools:
+  - Bash
+  - sl
+  - ls
+  - cd
+  - su
+---
+<h1>Waarom zijn veel UNIX en GNU/Linux commando's eigenlijk zo kort?</h1>
+<p>
+  <i>
+    <code>ls, cd, rm, dd, mv, su</code>: het barst van de super korte commando's
+    onder UNIX en GNU/Linux. Soms best cryptisch en soms vraag je je ook af
+    "waarom?". Vandaag de dag is er strict genomen nog maar 1 valide reden voor
+    te bedenken. Het scheelt typen en kost daardoor minder tijd. De commando's
+    zijn echter al sinds hun ontstaan in het begin van de jaren '70 zo en in die
+    tijd was er nog een belangrijke reden om alles zo kort mogelijk te houden...
+  </i>
+</p>
+
+<div class="blog">
+  <h4>Kramp</h4>
+</div>
+<p>
+  De eerste versie van het UNIX besturingssysteem (1969) werd geschreven op een
+  oude DEC PDP-7 uit 1964. Dit systeem had slechts 8k x 18 bits aan werkgeheugen
+  beschikbaar: 4k voor de kernel en 4k voor al het andere. Om dit systeem te
+  programmeren, gebruikten Ken Thompson en Dennis Ritchie een Teletype Model 33
+  schrijfmachine. Alles wat op de Teletype werd getypt, werd naar de computer
+  gestuurd en de respons van de computer werd op een rol papier geprint. Je
+  moest hier wel een beetje geduld voor hebben, want de maximale snelheid lag op
+  10 karakters per seconde. En een extra uitdaging? Typen op de Teletype Model
+  33 was zwaar voor de vingers. Dit heeft er volgens de overlevering aan
+  bijgedragen dat de commando's zo kort mogelijk gehouden werden. Het hielp
+  kramp in de vingers te voorkomen!
+</p>
+<p>
+  Eind 1971 kwam de eerste editie van de Unix Programmer's Manual uit. Er werd
+  in die tijd nog volop aan het besturingssteem en de elementaire
+  functionaliteit ervan gewerkt, getuige onder andere deze passage uit de
+  handleiding:
+</p>
+
+<br /><br />
+<div class="blog">
+  <h5>
+    "BUGS: <code>rm</code> probably should ask wheter a read-only file is really
+    to be removed."
+  </h5>
+</div>
+<br /><br />
+
+<div class="card" style="background-color: black; color: white; padding: 20px">
+  <h4>De gedachten van Ton Kersten</h4>
+  <p>
+    Er zijn diverse prachtige verhalen in omloop als het gaat om de historie van
+    sommige UNIX commando's. Ik meen ooit te hebben gehoord dat het commando
+    <code>dd</code> (<i>convert and copy a file</i>) zijn naam dankt aan het
+    feit dat <code>cc</code> al in gebruik was voor de C-compiler. Een beetje
+    zoals de taal <code>B</code> werd "opgevolgd" door <code>C</code>. Door de
+    drang naar korte commando's was <code>dd</code> een passende keuze.
+  </p>
+  <p>
+    Op
+    <a
+      href="https://sudonull.com/post/202150-The-origin-of-the-names-of-some-Unix-commands"
+      target="_blank"
+      >deze</a
+    >
+    pagina kun je de nodige informatie vinden over de historie van diverse UNIX
+    commando's. Hoewel ik geen onomstotelijk bewijs heb kunnen vinden voor mijn
+    verhaal over <code>dd</code> en <code>cc</code> lijkt het er volgens
+    <a
+      href="https://groups.google.com/g/alt.folklore.computers/c/HAWoZ8g-xYk/m/HDUVxwTVLKAJ?pli=1"
+      target="_blank"
+      >dit draadje op Google Groups</a
+    >
+    op dat grondlegger van UNIX en C wijlen Dennis Ritchie mijn memoires niet
+    deelt. Hij doet het <code>dd</code> versus <code>cc</code> verhaal af als
+    "spurious". Wie het weet mag het zeggen...
+  </p>
+  <p>
+    Nu ik me toch via dit kader met het blogje bemoei, kan ik het ook niet laten
+    om iets over nog een tweetal commando's van twee letters te zeggen:
+    <code>vi</code> en <code>ed</code>. <code>vi</code> is een grafische full
+    screen editor en <code>ed</code> is een regel georienteerde editor. Van
+    beiden wordt de kracht anno <code>$(date)</code> nog steeds onderschat.
+  </p>
+</div>
+
+<div class="blog" style="padding-top: 50px">
+  <h4>Alias</h4>
+</div>
+<p>
+  Hoewel er tegenwoordig duizenden commando's bestaan voor alle smaken Linux
+  distributies, is het nog steeds een gewoonte om een commando kort en bondig te
+  houden. Is een commando toch lang en heb je geen zin om iedere keer alles te
+  moeten typen? Dan is er de mogelijkheid om hiervoor een <code>alias</code> te
+  maken.
+</p>
+
+<div class="container-fluid">
+  <div class="card">
+    <pre><code>
+        #This example is made with Bash running on Fedora 37
+        $ alias k=kubectl
+        $ k version --output=yaml
+        clientVersion:
+            buildDate: "2022-12-08T19:58:30Z"
+            compiler: gc
+            gitCommit: b46a3f887ca979b1a5d14fd39cb1af43e7e5d12d
+            gitTreeState: clean
+            gitVersion: v1.26.0
+            goVersion: go1.19.4
+            major: "1"
+            minor: "26"
+            platform: linux/amd64
+        kustomizeVersion: v4.5.7
+    </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+<div>
+  <p style="padding-top: 20px">
+    Je kunt een alias ook gebruiken voor commando's inclusief argumenten.
+    Hierbij moet je dan wel dubbele aanhalingstekens gebruiken zodat de shell
+    weet wanneer de waarde voor de alias begint en eindigt.
+  </p>
+</div>
+<div class="container-fluid">
+  <div class="card">
+    <pre><code>
+        #This example is made with Bash running on Fedora 37
+        $ alias k="kubectl version --output=yaml"
+        $ k
+        clientVersion:
+            buildDate: "2022-12-08T19:58:30Z"
+            compiler: gc
+            gitCommit: b46a3f887ca979b1a5d14fd39cb1af43e7e5d12d
+            gitTreeState: clean
+            gitVersion: v1.26.0
+            goVersion: go1.19.4
+            major: "1"
+            minor: "26"
+            platform: linux/amd64
+        kustomizeVersion: v4.5.7
+</code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<div class="blog" style="padding-top: 50px">
+  <h4>Stoom afblazen...</h4>
+</div>
+<p>
+  Creatief als de open source community is, zijn er ook diverse nieuwe tools
+  gemaakt die ook uit slechts twee letters bestaan. In sommige gevallen zijn ze
+  nuttig, in andere gevallen vooral bedoeld om de welwillende CLI-gebuiker tot
+  waanzin te drijven. Neem bijvoorbeeld het command <code>sl</code>.
+</p>
+
+<p>
+  <code>sudo dnf -y install sl</code>
+</p>
+
+  <video controls autoplay muted loop="loop">
+    <source src="/img/blog/lekker-kort/sl.webm" type="video/webm" />
+  </video>
+
+
+<p style="padding-top: 50px">
+  Wanneer je deze "tool" hebt draaien dan zul je iedere keer als je
+  <code>ls</code> wilt typen en per ongeluk de letters omdraait moeten wachten
+  tot de stoom opgetrokken is..... Gelukkig is deze digitale trein ook vlot weer
+  vertrokken...<code>sudo dnf -y remove sl</code>
+</p>
+
+<p>
+  <b>
+    Voor wie meer wil lezen over de omgeving waaruit UNIX is voortgekomen en
+    waarom er bepaalde <i>quirks and features</i> in het besturingssysteem
+    zitten, kunnen we van harte het boek
+    <a
+      href="https://www.bol.com/nl/nl/p/unix/9200000123644561/?bltgh=hMjQdeRnyLGYPdhjELpOQQ.4_14.15.ProductImage"
+      target="_blank"
+      >UNIX, A History and a Memoir van Brian Kernighan</a
+    >
+    aanraden.
+  </b>
+</p>

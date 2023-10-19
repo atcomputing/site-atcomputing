@@ -1,0 +1,486 @@
+---
+title: Bash Functies
+date: 2023-09-21T12:34:00
+layout: blog/single
+header_image: /img/blog/bash-functies/header.png
+tags:
+  - Linux
+  - Bash scripting
+tools:
+  - Linux
+  - Bash
+courses:
+  - <a href="https://www.vijfhart.nl/opleidingen/shell-scripting-fundamentals/" target="_blank">Shell Scripting Fundamentals</a>
+---
+
+<h1>Bash wel heel erg handig: functies!</h1>
+<p>
+  <i>
+    Al vanaf hun geboorte zijn UNIX en Linux gemaakt om mee te automatiseren.
+    Vrijwel iedere GNU/Linux distributie wordt “af fabriek” geleverd met Bash en
+    beschikt daarmee over een krachtig stuk gereedschap om van alles en nog wat
+    te automatiseren. Een van de handigste mogelijkheden van Bash is het werken
+    met functies. In dit blog laten we je stap voor stap zien hoe dat werkt en
+    geven we een paar leuke voorbeelden. Pak je terminal er maar bij en doe
+    vooral mee!
+  </i>
+</p>
+
+<p>
+  Voordat we echt van start gaan, moeten we eerst het volgende kwijt. Wie volop
+  in de loopgraven der automatisering zit, zal al vrij snel met allerhande
+  redenen komen om een “echte” programmeertaal te gebruiken of specifieke
+  tooling in plaats van Bash. Daar zijn we het tot op zekere hoogte mee eens.
+  Ja, er zijn voor bepaalde vormen van automatiseren absoluut betere stukken
+  gereedschap beschikbaar dan Bash. Niet voor niets zijn we bij AT Computing fan
+  van bijvoorbeeld Terraform, Ansible en Python. Toch heeft het goed uit de
+  voeten kunnen met Bash legio voordelen. Allereerst is het compleet verweven
+  met alle functies van het gehele besturingssysteem. Je kunt daardoor eenvoudig
+  werken met omgevingsvariabelen en gebruik maken van alle op het systeem
+  beschikbare commando’s, directories en bestanden zonder allemaal extra
+  libraries. Een ander groot voordeel is dat Bash bij de meeste
+  Linux-distributies simpelweg aanwezig is. Dat klinkt gek, maar het betekent
+  dat je niets extra hoeft te installeren om er gebruik van te kunnen maken. Zit
+  je dus op een systeem waar je bijvoorbeeld niet de rechten hebt om extra
+  software (zoals een “echte” programmeertaal) te installeren, dan kun je met
+  Bash alsnog zaken automatiseren. Handig!
+</p>
+
+<p>
+  Om de kracht en het werkingsmechanisme van Bash functies te tonen, gaan we
+  binnen dit blog werken met een eenvoudig voorbeeld: een vriendelijke boodschap
+  die we via de terminal willen weergeven. In de terminal kun je deze boodschap
+  als volgt laten weergeven:
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+                      $ echo "Goedendag beste guru, hoe maakt u het?"
+                      "Goedendag beste guru, hoe maakt u het?"
+                      $
+                    </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Bovenstaande commando is natuurlijk alleraardigst, maar als je dit 200 keer
+  moet uitvoeren dan wordt het toch een beetje vervelend. Je zou het commando
+  uiteraard iedere keer helemaal kunnen intypen, maar dat is foutgevoelig en
+  kost onnodig veel tijd. De slimme Bash-gurus onder ons zullen nu wel morrend
+  zeggen “dan maak je toch een alias?”. Terecht punt. Dat kan. Probeer maar:
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+                      # let op de ' voor de alias en de " voor het echo commando
+                      $ alias begroeting='echo “Goedendag beste guru, hoe maakt u het?”'
+                      # geef nu als commando de naam van de alias
+                      $ begroeting
+                      "Goedendag beste guru, hoe maakt u het?"
+                      # verwijder de alias door het volgende commando (of start je terminal-venster opnieuw op)
+                      $ unalias begroeting
+                    </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Leuk, maar niet zo flexibel. Stel nu dat we namelijk niet `guru` willen
+  begroeten, maar Piet. We zouden dan het gehele commando opnieuw moeten typen
+  of een nieuwe alias moeten maken. En dan willen we Laura ook nog begroeten, of
+  Tux natuurlijk... Tijd om een begroeting functie te maken!
+</p>
+
+<h2>De functie(s) van een functie</h2>
+<p>
+  Laten we, voordat we meteen weer de terminal in duiken, met de basis beginnen:
+  wat is een functie en hoe definieer je die binnen Bash? Een functie is, in de
+  context van automatisering/programmeren, een reeks opeenvolgende instructies
+  die gezamenlijk als doel hebben een specifieke taak te verrichten. Het kan
+  bijvoorbeeld gaan om het uitvoeren van een optelsom, het verwerken van tekst,
+  het ophalen of wegschrijven van data etc. etc.. Voor alle functies geldt: er
+  is invoer nodig en op basis van die invoer geeft de functie bepaalde uitvoer,
+  net zoals binnen wiskunde ook het geval is. Functies zijn dan ook erg
+  waardevol als je een serie dezelfde, repeterende commando’s wilt uitvoeren. En
+  als je een beetje slim prograammeert dan kan een functie ook prima omgaan met
+  (enige) variatie van de invoer. Dat scheelt een hoop werk!
+</p>
+<p>
+  Een functie definieren in Bash is eenvoudig. Het enige wat je ervoor nodig
+  hebt is een tekstverwerker. Kies er vooral eentje die je fijn vindt. Grafisch
+  of via de CLI. Wij gebruiken hieronder de standaard GNU-tool <code>vim</code>.
+  Maak voor het gemak een nieuwe directory (<code>mkdir functies</code>) aan en
+  <code>cd functies</code> daar naartoe. Maak vervolgens een leeg bestand met de
+  naam <code>functie</code> aan. Een bestands-extensie (zoals .sh) mag, maar is
+  niet noodzakelijk.
+</p>
+
+<p>
+  Feitelijk zijn we nu begonnen met het schrijven van een programma. Of meer
+  specifiek gezegd: een bash-script. Een script is een softwareprogramma dat
+  rechtstreeks door een besturingssysteem kan worden uitgevoerd, zonder dat de
+  code eerst in een voor de computer uitvoerbare taal hoeft te worden omgezet
+  (dat wordt
+  <a href="https://nl.wikipedia.org/wiki/Compiler" target="_blank"
+    >compileren</a
+  >
+  genoemd). Het is gebruikelijk om een Bash-script te beginnen met een zogeheten
+  <code>shebang</code> of ook wel <code>hashbang</code>. Deze ziet er vaak als
+  volgt uit <code>#!/bin/bash</code> en is bedoeld om de kernel te vertellen hoe
+  en waarmee je wilt dat jouw programma precies wordt uitegevoerd. In het geval
+  van een bash-script vertel je dus tegen de kernel dat
+  <code>/bin/bash</code> gebruikt moet worden. <code>bash</code> weet vervolgens
+  precies wat er uitgevoerd moet worden, omdat het de taal in het script
+  begrijpt. Oke, ervan uitgaande dat je alles netjes conform de eisen van de
+  script-taal hebt geschreven natuurlijk! Overigens kun je een bash-script ook
+  succesvol uitvoeren zonder de <code>shebang</code>. Probeer dat zeker eens
+  uit. Genoeg gelezen, tijd om te typen!
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+                  # met vim kun je meteeen een nieuw/leeg bestand aanmaken
+                  # geef hiervoor de gewenste bestandsnaam mee als argument
+                  $ vim functie
+                  #!/bin/bash
+
+                  begroeting(){
+                    echo “Goedendag beste guru, hoe maakt u het?”	
+                  }
+                </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Zoals je ziet wordt een functie in Bash geschreven met de notatie
+  <code> "functienaam(){ <<'inhoud van de functie'>> }" </code>. Een functie kan
+  groot of klein, simpel of complex zijn: de manier waarop je een functie
+  definieert is altijd hetzelfde. In jargon wordt de manier waarop je in een
+  programmeertaal iets definieert, de syntax of
+  <a href="https://nl.wikipedia.org/wiki/Syntaxis_(informatica)" target="_blank"
+    >syntaxis</a
+  >
+  genoemd. De grammatica van de betreffende programmeertaal dus!
+</p>
+
+<p>
+  Als we het bestand met de vers geschreven functie hebben opgeslagen dan is het
+  tijd om de functie uit te voeren. Dit kan door het bestand in te lezen via het
+  commando <code>source</code>. Daarna kun je in de terminal
+  <code>begroeting</code> als commando geven en zal <code>bash</code> het
+  commando en daarmee de functie netjes uitvoeren.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+                $ source functie
+                $ begroeting
+                Goedendag beste guru, hoe maakt u het?
+                $
+              </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Merk op dat de dubbele aanhalingstekens (") verdwenen zijn. Dit komt omdat
+  Bash het commando <code>echo</code> anders interpreteert als onderdeel van een
+  script/functie dan wanneer het als los commando in de terminal wordt
+  uitgevoerd. Het is een goede gewoonte om binnen een Bash-script alles wat
+  geprint moet worden of alles variabel is tussen dubbele aanhalingstekens te
+  plaatsen, zodat voorkomen wordt dat speciale karakters (zoals $, !, * of %)
+  voor ongewenste uitkomsten zorgen. Wil je binnen de functie ook de
+  aanhalingstekens printen? Dan zul je dat aan Bash moeten vertellen door een
+  zogheten escape-karakter. In Bash is dat <code>\</code>.
+</p>
+
+<p>
+  We zijn goed op weg. We hebben onze eerste functie geschreven en uitgevoerd!
+  Nadeel van de hierboven gehanteerde methode is echter dat de functie “weg” is
+  wanneer het terminal-venster gesloten wordt. Je zult de functie in een nieuwe
+  terminal opnieuw moeten inladen (met <code>source</code>) voor gebruik. Heb je
+  een functie die je standaard wilt gaan gebruiken? Dan kun je die het starten
+  van een nieuwe terminal sessie automatisch laten inlezen via de file
+  <code>.bashrc</code>.
+</p>
+
+<p>
+  Let op: maak voordat je de <code>.bashrc</code> file gaat bewerken een backup!
+  Dit voorkomt problemen als er per ongeluk wat misgaat.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ cp ~/.bashrc ~/.bashrc.bck
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Voeg vervolgens met een tekst editor een regel toe zoals hieronder en sla het
+  bestand op. Belangrijk is om naar het pad te verwijzen waar jouw functie zich
+  bevindt. In ons geval is dat in de directory <code>functies</code> in de
+  <code>$HOME</code> directory van de huidige gebruiker. We checken met
+  <code>[[ -r ]]</code> eerst of het bestand bestaat voordat we
+  <code>source</code> uitvoeren.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ vim ~/.bashrc
+              # hier staat van alles in. Voeg onderstaande helemaal onderaan als nieuwe regels toe.
+              [[ -r "$HOME/functies/functie" ]] && source "$HOME/functies/functie"
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Als je klaar bent met bewerken van <code>~/.bashrc</code> dan kun je de
+  terminal sluiten/opnieuw openen of eenmalig handmatig de gewijzigde
+  <code>bashrc</code> file sourcen. Vanaf dat moment laadt Bash de functie
+  automatisch in wanneer je een terminal start. Als je nu de naam van de functie
+  typt, dan wordt de functie direct uitgevoerd door de shell.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ begroeting
+              Goedendag beste guru, hoe maakt u het?
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<h2>Variabelen</h2>
+
+<p>
+  Nu we de functie aan de praat hebben, kunnen we een stapje verder gaan. Laten
+  we er eens een variabele bij halen. Zoals de naam al doet vermoeden kan een
+  variabele gewijzigd worden. Dit zorgt voor flexibiliteit bij het programmeren
+  en maakt functies nog veel krachtiger. Met de variabele hebben we invloed op
+  de invoer van de functie. In programmeerjargon geven we de functie een
+  <i>argument</i> mee. Of meerdere argumenten. Stel dat we een functie maken
+  voor het berekenen van de oppervlakte van een rechthoek, dan zouden de twee
+  argumenten voor de functie bijvoorbeeld de lengte en de breedte kunnen zijn.
+  In Bash worden argumenten gedefinieerd door een dollar-teken gevolgd door een
+  cijfer, dus <code>$1</code>. Hierbij is 1 het eerste argument dat aan de
+  functie wordt gegeven, 2 het tweede etc. Weet je niet precies hoeveel
+  argumenten er zullen zijn? Dan kun je <code>$@</code> gebruiken. Hierbij zal
+  het apenstaartje de waarde van ieder argument aannemen, op volgorde waarop ze
+  worden aangeboden. Het maakt daarbij niet uit hoeveel argumenten je opgeeft.
+  Ok. Genoeg theorie weer voor nu! Open het bestand met de functie erin en
+  wijzigen de tekst “guru” in <code>$1</code>.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ vim functie
+              #!/bin/bash
+              
+              begroeting(){
+                echo “Goedendag beste $1, hoe maakt u het?”	
+              }
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Natuurlijk weer even opslaan en de terminal opnieuw starten zodat de
+  aangepaste functie ingeladen wordt. Daarna kunnen we het volgende doen:
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ begroeting “Linus”
+              Goedendag beste Linus, hoe maakt u het?              
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Linus is in dit geval een argument voor de functie waarmee de uitkomst van de
+  functie kan worden beïnvloed. Linus is het eerste argument en wordt daardoor
+  met <code>$1</code> verwerkt. Stel dat we het volgende doen met onze functie:
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ vim functie
+              #!/bin/bash
+
+              begroeting(){
+                echo “Goedendag beste $1, hoe maakt u het?”
+                echo “Uw huidige werk is $2”	
+              }      
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>Even opnieuw sourcen natuurlijk.... en dan volgt:</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              $ begroeting "Linus” “eindbaas van de Linux kernel”
+              Goedendag beste Linus, hoe maakt u het?
+              Uw huidige werk is eindbaas van de Linux kernel
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Raadzaam is om altijd dubbele quotes (“) te gebruiken bij gegevensinvoer om te
+  voorkomen dat bepaalde karakters verkeerd worden geïnterpreteerd of opgeknipt
+  door Bash. Wil je vreemde tekens gebruiken? Dan kan het nodig zijn om met
+  escapes te werken. Check
+  <a href="https://www.shellscript.sh/escape.html" target="_blank"
+    >deze pagina</a
+  >
+  voor meer info hierover.
+</p>
+
+<p>
+  Laten we tot slot nog naar twee handige mogelijkheden kijken. Als eerste: het
+  aanroepen van een functie binnen een andere functie. We voegen hiervoor de
+  functie <code>dag</code> toe aan ons script. De <code>dag</code> functie
+  gebruiken we vervolgens binnen de functie <code>begroeting</code>. Zie je dat
+  de definitie van de functie <code>dag</code> precies dezelfde structuur heeft
+  als die van <code>begroeting</code>? De functie is alleen een stuk korter.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              #!/bin/bash
+
+              begroeting(){
+
+                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag' 
+                      vandaag=$(dag)
+
+                      echo "Goedendag beste $1, hoe maakt u het?"
+                      echo "Uw huidige werk is $2"
+                      
+                      # hier plakken we de variabele 'vandaag' aan de tekst vast.
+                      echo "Het is vandaag:" $vandaag
+
+                      # het is ook mogelijk om rechstreeks de 'dag' functie aan te roepen binnen het 'echo' commando.
+                      echo "De functie werkt ook zo:" $(dag)
+              }
+
+              # deze functie geeft de dag van de week als uitkomst
+              dag(){
+              
+                      date "+%A"
+
+              }
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+             $ begroeting "Linus" “eindbaas van de Linux kernel”
+             Goedendag beste Linus, hoe maakt u het?
+             Uw huidige werk is eindbaas van de Linux kernel
+             Het is vandaag: Donderdag
+             De functie werkt ook zo: Donderdag
+             $
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Als allerlaaste kijken we naar een zogeheten <code>if-statement</code>. Met
+  een if-statement kun je zorgen dat je binnen het script keuzes kunt maken, op
+  basis van bepaalde spelregels/voorwaarden. Hiermee kun je met je script of
+  programma bijvoorbeeld inspelen op ongewenste of onbedoelde scenario’s: wat
+  als de gebruiker een ongeldige waarde invoert als argument? Of wat als er
+  tijdens het uitvoeren iets misgaat? Hieronder zie je een voorbeeld: als de
+  ingevoerde waardes van de argumenten niet gelijk zijn aan "Linus” en “eindbaas
+  van de Linux kernel” dan wordt er een foutboodschap geprint en stopt de
+  functie direct: je keert terug (<code>return</code>) naar de prompt van je
+  terminal. De <code>1</code> achter <code>return</code> geeft Bash de boodschap
+  mee "er is iets fout gegaan". Dit wordt de exit-code genoemd. Gaat alles wel
+  goed? Dan is de exit-code 0. Je kunt de exit-code van je functie (of van ieder
+  ander commando in Bash) bekijken door na uitvoer van de functie of het command
+  <code>echo $?</code> uit te voeren.
+</p>
+
+<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px">
+  <div class="card">
+    <pre><code>
+              #!/bin/bash
+
+              begroeting(){
+              
+                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag' 
+                      vandaag=$(dag)
+              
+                      # valideer de meegegeven argumenten
+              
+                      if [[ $1 = 'Linus' ]] && [[ $2 = 'eindbaas van de Linux kernel' ]] 
+                      then
+                              echo "Goedendag beste $1, hoe maakt u het?"
+                              echo "Uw huidige werk is $2"
+                      else
+                              echo "Ongeldige waarde ingevoerd!"
+                              return 1
+                      fi
+              
+                      # hier plakken we de variabele 'vandaag' aan de tekst vast.
+                      echo "Het is vandaag:" $vandaag
+              
+                      # het is ook mogelijk om rechstreeks de 'dag' functie aan te roepen binnen het 'echo' commando.
+                      echo "De functie werkt ook zo:" $(dag)
+              }
+              
+              # deze functie geeft de dag van de week als uitkomst
+              dag(){
+              
+                      date "+%A"
+
+              }
+            </code></pre>
+    <p class="text-muted">bash</p>
+  </div>
+</div>
+
+<p>
+  Natuurlijk is bovenstaande een voorbeeld en beperkt qua praktisch nut. Je kunt
+  met dezelfde ingrediënten echter wel degelijk handige functies maken die
+  dagelijks volop gebruikt kunnen worden en werk uit handen nemen!
+</p>
+
+<p>
+  <i
+    >Begin je de smaak van scripten met Bash inmiddels te pakken te krijgen?
+    Mooi zo! Een heel handige gids om jouw scripts en applicaties met Bash
+    professioneel, robuust en veilig te maken is
+    <a href="https://www.shellcheck.net/" target="_blank">shellcheck.net</a> Ook
+    zou je eens kunnen kijken naar onze training Shell Scripting Fundamentals,
+    waar je nog veel meer leert over automatiseren met <code>bash</code>,
+    <code>sed</code> en <code>awk</code>.
+  </i>
+</p>

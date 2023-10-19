@@ -1,0 +1,270 @@
+---
+title: Licentieperikelen
+date: 2023-09-25T09:42:39
+layout: blog/single
+header_image: /img/blog/licentieperikelen/header.png
+tags:
+  - linux
+tools:
+  - Linux
+  - Terraform
+  - openTofu
+  - Red Hat Enterprise Linux
+courses:
+  - <a href="https://www.vijfhart.nl/opleidingen/linux-unix-fundamentals/" target="_blank">Linux/UNIX Fundamentals</a><br>
+---
+<p>
+  <i>
+    Het is de laatste maanden enigszins onstuimig in de open source wereld. Niet
+    omdat er een nieuwe tool is gelanceerd die alle andere tools wegblaast, maar
+    omdat twee grote spelers in de open source wereld eenzijdig en zonder
+    voorafgaande berichtgeving de voorwaarden/spelregels rondom hun open source
+    software hebben aangepast. Eerst was het Red Hat dat aankondigde om de
+    broncode van hun Enterprise Linux distributie niet langer vrij beschikbaar
+    te stellen. Vlak erna maakte HashiCorp bekend dat het restricties zet op wat
+    je met de Community Edition van hun softwareproducten mag doen. Waarom doen
+    ze dit en wat zijn (tot dusver) de gevolgen?
+  </i>
+</p>
+<p>
+  Laten we de olifant in de kamer maar meteen bij z’n slurf grijpen: beide
+  acties zijn bedoeld om de eigen positie van de betreffende vendor te
+  versterken en het business model van het bedrijf te bewaken of te vergroten.
+  Plat gezegd is het dus bedoeld om meer geld te verdienen. In het geval van Red
+  Hat lijkt dit een herhaling van zetten te zijn als we naar de historie van
+  moederbedrijf IBM kijken. In het geval van HashiCorp speelt er wat anders.
+  HashiCorp is weliswaar een bedrijf met ~2000 medewerkers en een notering aan
+  de Nasdaq, maar het heeft nog nooit winst gemaakt. Met miljoenen aan geld van
+  externe investeerders is de druk om nu toch eens zwarte cijfers te gaan
+  produceren groot. Zo. Dan hebben we dat maar gehad.
+</p>
+<h2>Redt Red Hat het?</h2>
+<p>
+  In 2018 maakte IBM bekend dat het voor een slordige $34.000.000.000 Red Hat
+  zou gaan overnemen. In
+  <a
+    href="https://newsroom.ibm.com/2019-07-09-IBM-Closes-Landmark-Acquisition-of-Red-Hat-for-34-Billion-Defines-Open-Hybrid-Cloud-Future"
+    target="_blank"
+    >2019</a
+  >
+  was de overname een feit. Tot die tijd was Red Hat het grootste, zelfstandige
+  bedrijf dat niets anders dan open source software maakte en leverde. Het
+  verdienmodel van Red Hat bestaat uit het leveren van consultancy, training en
+  support (op basis van een abonnementsmodel). Alle broncode van alle software
+  van het bedrijf was vrij beschikbaar, ook van vlaggenschip annex stokpaard Red
+  Hat Enterprise Linux (RHEL). Zoals gebruikelijk bij dit soort overnames valt
+  in het persbericht te lezen dat er helemaal niets aan Red Hat zou veranderen:
+  “Red Hat's unwavering commitment to open source remains unchanged”. Dat was
+  welgeteld ongeveer twee maanden het geval, want in
+  <a
+    href="https://www.redhat.com/en/blog/transforming-development-experience-within-centos
+                 "
+    target="_blank"
+    >september 2019</a
+  >
+  veroorzaakte Red Hat de eerste vloedgolf van kritiek in de open source oceaan
+  door aan te kondigen dat CentOS niet langer een 1-op-1 compatibel alternatief
+  voor RHEL zou blijven, maar CentOS Stream zou gaan worden. CentOS Stream
+  bevindt zich sindsdien upstream ten opzichte van RHEL, waarbij het als een
+  soort beta van nieuwe RHEL releases kan worden gezien.
+</p>
+<p>
+  Als reactie op deze stap kwam er vrij snel alternatieve distributies op de
+  markt om de “oude” functie van CentOS over te nemen:
+  <a href="https://almalinux.org/" target="_blank">AlmaLinux</a> en
+  <a href="https://rockylinux.org/" target="_blank">RockyLinux</a>. Na een
+  tijdje ging de storm ging weer enigszins liggen, totdat Red Hat op
+  <a
+    href="https://www.redhat.com/en/blog/furthering-evolution-centos-stream"
+    target="_blank"
+    >21 juni 2023</a
+  >
+  aankondigde de broncode van Red Hat Enterprise Linux niet langer vrij
+  beschikbaar te maken. In plaats daarvan wordt de broncode alleen nog gedeeld
+  met klanten van Red Hat die een abonnement op de dienstverlening (een
+  zogeheten subscription) van Red Hat hebben.
+</p>
+
+<p>BAM!</p>
+
+<p>
+  Binnen no-time stond de hele open source wereld op z’n kop. Van alle kanten
+  wordt de beweging van Red Hat scherp veroordeeld en het duurde dan ook niet
+  lang voordat er een stroom aan nieuws- en persberichten verscheen als reactie
+  op het blog van Red Hat. Als een van de eersten kwamen
+  <a href="https://almalinux.org/blog/impact-of-rhel-changes/" target="_blank"
+    >AlmaLinux</a
+  >
+  en
+  <a
+    href="https://rockylinux.org/news/brave-new-world-path-forward/"
+    target="_blank"
+    >RockyLinux</a
+  >
+  in de lucht met een statement over hun toekomst. In
+  <a
+    href="https://sfconservancy.org/blog/2023/jun/23/rhel-gpl-analysis/"
+    target="_blank"
+  >
+    dit blog</a
+  >
+  wordt gedetailleerd ingegaan op de juridsche kant van de move: mag het wel
+  licentie-technisch? De storm was dermate heftig dat Red Hat zich genoodzaakt
+  voelde om enkele dagen na het initiële bericht een
+  <a
+    href="https://www.redhat.com/en/blog/red-hats-commitment-open-source-response-gitcentosorg-changes"
+    target="_blank"
+  >
+    reactie</a
+  >
+  te publiceren. Het bracht geen verandering in de situatie en diverse grote en
+  kleinere partijen roerden zich. Op 10 juli verscheen
+  <a
+    href="https://www.oracle.com/bh/news/announcement/blog/keep-linux-open-and-free-2023-07-10/"
+    target="_blank"
+    >dit blog</a
+  >
+  van Oracle, dat als niets minder dan een directe aanval op Red Hat gezien kan
+  worden. Last but not least reageerde SUSE middels twee berichten op de
+  gebeurtenissen. Als eerste op
+  <a
+    href="https://www.suse.com/news/SUSE-Preserves-Choice-in-Enterprise-Linux/"
+    target="_blank"
+  >
+    29 juni</a
+  >
+  met een bericht waarin ze de beweging en de consequenties ervan evalueren.
+  Niet veel later, op 11 juli kwam het
+  <a
+    href="https://www.suse.com/news/SUSE-Preserves-Choice-in-Enterprise-Linux/"
+    target="_blank"
+    >persbericht</a
+  >
+  dat SUSE ruim 10 miljoen USD steekt in het forken en komende jaren onderhouden
+  van de laatste, publiek beschikbare RHEL software. Op die manier blijft er
+  (nog) een vrij beschikbare, RHEL-compatibele distributie. Daar bleef het niet
+  bij...
+</p>
+<h2>OpenELA</h2>
+Op
+<a
+  href="https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/"
+  target="_blank"
+  >10 augustus</a
+>
+volgende meer nieuws: de
+<a href="https://openela.org/" target="_blank"
+  >Open Enterprise Linux Association</a
+>
+is een feit. Doel van deze organisatie is te borgen dat Linux distributies voor
+grootzakelijke bedrijven (en overheden) "vrij/open" beschikbaar blijven.
+Oprichters van dit collectief: Oracle, SUSE en CIQ (RockyLinux). Ook hebben
+RockyLinux en AlmaLinux intussen meer gedeeld over hoe zij hun eigen toekomst
+zien.
+
+<h3>RockyLinux</h3>
+<p>
+  RockyLinux heeft ervoor gekozen om 1-op-1 compatibel te blijven met Red Hat,
+  maar daarvoor dienen ze vanaf heden dus op een "alternatieve" manier aan de
+  daarvoor benodigde broncode van RHEL te komen. Hiervoor huren ze een VPS
+  waarop RHEL draait, waarmee ze dus feitelijk een RHEL subscription afnemen.
+  Hiermee halen ze de broncode binnen om die vervolgens als basis te gebruiken
+  voor RockyLinux.
+</p>
+
+<h3>AlmaLinux</h3>
+
+<p>
+  AlmaLinux heeft besloten een andere route te gaan bewandelen. Zij beloven een
+  <a
+    href="https://en.wikipedia.org/wiki/Application_binary_interface"
+    target="_blank"
+    >ABI-compatibele</a
+  >
+  distributie te blijven. Dit betekent niet dat ze 1-op-1 gelijk zullen blijven
+  aan RHEL, maar dat ze garanderen dat applicaties die voldoen aan de vereisten
+  om op RHEL te kunnen draaien, ook gegarandeerd op AlmaLinux kunnen draaien.
+</p>
+<p>
+  Het is nog te vroeg om de exacte gevolgen van de stappen van Red Hat te kunnen
+  duiden en om te kunnen vaststellen of de strategie van ondermeer RockyLinux en
+  AlmaLinux succesvol gaat zijn. Het lijkt er echter intussen wel op dat
+  bedrijven de keuze voor de door hen gebruikte Linux-distributie heroverwegen.
+  De toekomst zal uitwijzen wat de langetermijn gevolgen zijn voor zowel Red Hat
+  zelf als voor SUSE, RockyLinux, AlmaLinux en/of Oralce...
+</p>
+<h2>HashiCorp</h2>
+<p>
+  De tweede grote speler in de open source wereld die de hoon van de community
+  op z'n hals heeft gehaald is HashiCorp. HashiCorp deelde op 10 augustus in een
+  <a
+    href="https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+    target="_blank"
+  >
+    persbericht</a
+  >
+  waarin het aankondigde over te gaan op een andere licentie voor haar software:
+  Business Source License. In tegenstelling tot de wending van Red Hat met RHEL
+  blijft de broncode van de producten van HashiCorp gewoon vrij beschikbaar. Er
+  wordt echter wel een restrictie gezet op wat er met deze broncode gedaan mag
+  worden door derde partijen. Op hoofdlijnen komt het erop neer dat HashiCorp
+  het niet langer toestaat dat andere partijen concurrerende, commerciele
+  diensten of producten leveren op basis van de <i>community edition</i> van hun
+  softwareproducten: Terraform, Vault, Nomad, Consul, Vagrant etc. In de eerste
+  alinea schetsten wel al de situatie van HashiCorp: het heeft nog nooit winst
+  gemaakt en er zit voor miljoenen aan geld van investeerders in. De
+  licentie-aanpassing kan dan ook worden gezien als een "noodgreep" om het
+  bedrijfsresultaat een positieve impuls te geven. Open source is immers niet
+  hetzelfde als liefdadigheid. De wijziging heeft voor het overgrote deel van
+  alle gebruikers van de HashiCorp producten overigens geen enkele impact.
+  Zolang je niet bezig bent om HashiCorp met hun eigen code te lijf te gaan
+  vanuit je eigen onderneming, kun je gewoon lekker
+  <code>terraform apply -auto-approve</code> blijven doen in je
+  productie-omgeving. Dat geldt dus voor naar schatting 99,9% van alle
+  gebruikers.
+</p>
+
+<h2>OpenTofu</h2>
+<p>
+  Voor de open source community was de toelichting en belofte van HashiCorp
+  <i>community driven</i> te blijven, niet genoeg. Met name Terraform moest het
+  ontgelden en binnen enkele dagen verscheen er online een door Gruntwork
+  geïnitieerde petitie met als doel een volledig open alternatief voor Terraform
+  te behouden. Spoedig werd de OpenTF Foundation opgericht en steeds meer mensen
+  en bedrijven tekenden de petitie. OpenTF stond voor Open Terraform, maar
+  gebruik van die naam ging HashiCorp toch echt te ver. Om een juridische strijd
+  te voorkomen, werd een stevige discussie over de nieuwe gevoerd en kwam
+  <a href="https://opentofu.org/" target="_blank">OpenTofu</a> als winnaar uit
+  de bus. In Bilbao, tijdens de Open Source Summit Europe 2023, werd
+  aangekondigd dat OpenTofu als project was aangesloten bij de
+  <a
+    href="https://www.linuxfoundation.org/press/announcing-opentofu"
+    target="_blank"
+    >Linux Foundation</a
+  >. Daarmee is de afsplitsing een feit en is de vraag hoe de toekomst en
+  onderlinge compatibiliteit tussen HashiCorp Terraform en OpenTofu eruit komt
+  te zien. Het lijkt er sterk op dat er al de nodige breaking changes aan zitten
+  te komen, omdat OpenTofu een eigen roadmap nastreeft en diverse wijzigingen
+  beoogd door te voeren die HashiCorp niet heeft geimplementeerd. Opmerkelijk is
+  overigens dat OpenTofu (vooralsnog) gebruik blijft maken van HCL (HashiCorp
+  Configuration Language), de DSL (Domain Specific Language) van HashiCorp voor
+  al haar producten. Ook is de vraag voor hoeveel bedrijven die de community
+  edition intern gebruiken er noodzaak is om over te stappen. Voor die situatie
+  heeft de nieuwe licentie immers geen enkel gevolg.
+</p>
+
+<p>
+  <i
+    >Zoals al gezegd: het is nog te vroeg om een eindbalans op te kunnen maken.
+    Het is nog niet helemaal duidelijk wat er nu echt structureel veranderd is.
+    Natuurlijk kun je bij de start een heleboel lawaai maken. Dat is ook precies
+    wat OpenELA en OpenTofu goed hebben gedaan. De PR-machine en support van de
+    community waren op orde. Of ze het op langere termijn daadwerkelijk gaan
+    redden en een serieuze koerswijziging teweeg gaan brengen binnen de open
+    source wereld, dat valt nog te bezien. Voor de reguliere gebruikers van
+    Terraform verandert er praktisch helemaal niets. Ook de broncode blijft
+    gewoon beschikbaar. Voor Red Hat ligt dat anders. Daar is al wat gerommel
+    zichtbaar en hebben een aantal partijen inmiddels aangekondigd naar een
+    andere (meer open) distributie over te stappen.</i
+  >
+</p>

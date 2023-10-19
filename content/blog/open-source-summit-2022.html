@@ -1,0 +1,41 @@
+---
+title: Containers - a look under the hood
+date: 2022-10-11T14:43:00
+layout: blog/single
+header_image: /img/blog/open-source-summit-2022/header.png
+tags:
+- Nieuws
+tools:
+- Ansible
+- Guacamole
+- Vault
+- ATOP
+courses:
+- <a href="https://www.vijfhart.nl/opleidingen/linux-unix-fundamentals/" target="_blank">Linux/UNIX Fundamentals</a><br>
+---
+<p><i>From September 13-16 2022, Open Source Summit Europe took place in Dublin. AT Computing submitted a CFP for a
+    talk and it got selected. On Tuesday, September 13 @ 9:00AM IST, Gerlof Langeveld entered the stage and held his
+    presentation: Containers - a look under the hood.
+</i></p>
+
+<h3>Summary</h3>
+<p>
+    There are many implementations available to run containerized applications, such as Docker, CRI-O and Podman.
+    All implementations depend on distinct features that are offered by the Linux kernel. Knowledge about these features
+    helps you to understand how containerized applications operate under the hood and eventually helps with debugging.
+    Gerlof covers three kernel features that are the foundation of the container concept: 1. Kernel namespaces, used to isolate a process from the other processes running on the same host.
+    2. Process-related root directory, that enables an application process to have its own private mini-filesystem, just containing the files that are needed to run that process.
+    3. Capabilities, used to determine the special privileges for a process, independent of the fact whether the process runs under root identity (uid 0) or not.
+    Gerlof also explains the relation of these features with particular parameters that are used for container platforms, like ‘--pid=host’ (namespaces) or ‘--cap-add=...’ (capabilities) when using Docker.
+    During this workshop you gain hands-on experience by building a containerized application, just by using standard Linux commands.</p>
+              
+<h3>Watch the recording!</h3>
+<p>Gerlofs presentation was recorded at the event and is now available to watch on Linux Foundation's Youtube channel. For your convenience, we've embedded the video here as well.</p>
+
+<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/BM3aH-wultc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>
+You can download the slide deck of the presentation <a href="../downloads/container-under-hood.pdf" target="_blank">here</a>.
+</p>
+
+<p><i>Of course, we are very proud of Gerlof for delivering this great talk. Apparently, we were not  the only ones that really liked it. People attending the presentation later told Gerlof it was the best session of the whole conference. That is of course a great compliment!
+</i></p>

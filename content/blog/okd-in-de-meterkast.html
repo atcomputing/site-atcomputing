@@ -1,0 +1,118 @@
+---
+title: OKD in de meterkast
+date: 2023-04-12T14:43:00
+layout: blog/single
+header_image: /img/blog/okd-in-de-meterkast/header.png
+tags:
+  - Containers
+tools:
+  - OKD
+  - OpenShift
+  - Kubernetes
+courses:
+  - <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english/" target="_blank">Kubernetes Fundamentals</a>
+  - <a href="https://www.vijfhart.nl/opleidingen/do180-red-hat-openshift-i-containers-kubernetes-nl/" target="_blank">Red Hat OpenShift I&#8282; Containers & Kubernetes (via Vijfhart IT-Opleidingen)</a>
+  - <a href="https://www.vijfhart.nl/opleidingen/red-hat-openshift-administration-ii-configuring-a-production-cluster-do280-english/" target="_blank">Red Hat OpenShift II&#8282; Operating a Production Kubernetes Cluster (via Vijfhart IT-Opleidingen)</a>
+---
+
+<h1>
+  Origin Kubernetes Distribution (OKD) deployen: on-premises en in de cloud
+</h1>
+<p>
+  <i
+    >Red Hat levert met OpenShift een Kubernetes-gebaseerd applicatieplatform
+    aan haar klanten dat als doel heeft om continuous delivery, continuous
+    deployment en multi-tenancy op basis van containerized workloads zo
+    eenvoudig mogelijk te maken. Wie OpenShift wil gebruiken (on-premises of in
+    de cloud) zal daarvoor bij Red Hat een bijbehorende subscription moeten
+    afnemen. Zoals we van Red Hat gewend zijn, is er gelukkig ook een volledig
+    gratis bruikbare upstream variant van OpenShift genaamd Origin Kubernetes
+    Distributie, oftewel
+    <a href="https://github.com/okd-project/okd" target="_blank">OKD</a>.
+  </i>
+</p>
+
+<p>
+  AT-consultant Michael Trip besloot zich eens achter het beeldscherm op te
+  sluiten en te onderzoeken hoe je OKD kunt draaien in je eigen meterkast en in
+  de cloud. Wat er daarbij zijn pad kwam lees je in dit blog.
+</p>
+
+<h3>Waarom wil je thuis OKD of OpenShift draaien?</h3>
+<p>
+  “Ik ben veel met Kubernetes en OpenShift bezig en het leek me goed om de
+  installatie van OpenShift eens helemaal vanaf de grond te doorlopen op mijn
+  thuisserver. Ik kwam er al snel achter dat OpenShift 4 een nogal bijzondere
+  manier van installeren kent. Je moet van alles en nog wat vooraf voeden met
+  informatie, want het besturingssysteem dat ze voor de installatie gebruiken
+  (Red Hat’s Core OS) is immutable. Je loopt hierdoor tegen diverse kip-ei
+  problemen aan die eenvoudige installatie in de weg zitten."
+</p>
+
+<p>
+  "Ik kwam uiteindelijk uit bij een blog van 56 pagina’s met wat je allemaal
+  precies moet doen en welke extra handelingen er rondom OpenShift allemaal
+  nodig zijn. Denk hierbij aan het opzetten van tijdelijke extra servers en
+  zaken als DNS en DHCP. Kortom: ellende en enorm veel gedoe.”
+</p>
+
+<h3>Okay…. En toen?</h3>
+<p>
+  “Nou, ik was er in eerste instantie wel even klaar mee, hahaha! Maar toen ben
+  ik eens beter naar OKD en bijbehorende tooling gaan kijken, dus een laagje
+  dieper in diverse GitHub repositories. Dat leek wel handig om er meer van te
+  leren en niet veel later had ik het ineens vlot aan de praat.”
+</p>
+<h3>Watskebeurt?</h3>
+<p>
+  “Ik stuitte op een tool die blijkbaar wel bestaat, maar nog weinig bekend is.
+  Er is ook nergens goede documentatie over te vinden en de methode om de tool
+  in te zetten vond ik ergens verscholen op GitHub. De benodigde stappen staan
+  verstopt in een pull request voor documentatie. Het betreft de tool
+  <a href="https://github.com/openshift/assisted-service" target="_blank"
+    >Assisted Service</a
+  >. Deze software helpt om de bootstrap-problemen bij installatie te tackelen.
+  Het genereert een aantal ISO’s op basis van Fedora Core OS. Daarin zit een
+  agent gebakken die zich meldt bij de OKD moederschip server. Hiermee wordt de
+  kip-ei situatie doorbroken en kun je dus eenvoudig een (single) node OKD
+  omgeving deployen. In totaal heb je hiervoor 3 servers nodig en eentje extra
+  voor tijdens de installatie-procedure. Op mijn eigen
+  <a
+    href="https://michaeltrip.nl/blog/openshift-sno-in-homelab/"
+    target="_blank"
+    >blog-pagina</a
+  >
+  lees je precies hoe je OKD/OpenShift met Assisted Service aan de praat krijgt
+  op een on-premises omgeving.”
+</p>
+
+<h3>Wat lost het op?</h3>
+<p>
+  “Nou, het maakt je on-premises deployment van OpenShift veel en veel
+  eenvoudiger. Dit kan ook waardevol zijn in zakelijk toepassingen, waar je even
+  snel een test-omgeving wilt neerzetten om te troubleshooten of om nieuwe
+  releases van OKD of OpenShift te testen. Het scheelt je dan heel veel tijd en
+  kans op fouten.”
+</p>
+
+<h3>
+  Stel nu dat ik helemaal geen eigen server meer in de mijn meterkast heb. Wat
+  dan?
+</h3>
+<p>
+  “Er is ook tooling beschikbaar voor het uitrollen van OKD of OpenShift in de
+  cloud. Er is onder andere voor AWS, Azure en GCP een variant beschikbaar.
+  Onder water maakt de tool gebruik van Terraform. Een cloud-deployment is onder
+  andere hierdoor nog eenvoudiger, echt maar een paar commando’s. Daarover lees
+  je alles in
+  <a href="https://michaeltrip.nl/blog/deploy-okd-gcp/" target="_blank"
+    >dit blog</a
+  >. Het grote voordeel van een omgeving in een public cloud neerzetten is dat
+  je daar direct gebruik kunt maken van het hele cloud-ecosysteem om OpenShift
+  heen zoals load balancers, ingress, gateways en integratie met andere
+  cloud-services. Dat zul je met een on-premises omgeving allemaal nog zelf
+  moeten realiseren. Een belangrijke randvoorwaarde is wel dat je gebruik moet
+  maken van de managed DNS service van de cloud provider. De OpenShift service
+  (die in mijn blog draait in de Google Cloud) schrijft dan bij deployment
+  automatisch diverse records in DNS weg."
+</p>
