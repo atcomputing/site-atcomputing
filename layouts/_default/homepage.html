@@ -1,1699 +1,620 @@
 {{ define "main" }}
 <div class="hero">
-    <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline"
-           poster="/img/hero/preload.jpg" preload="auto">
-        <source src="/videos/hero.mp4" type="video/mp4">
-    </video>
+  <video
+    autoplay="autoplay"
+    loop="loop"
+    muted="muted"
+    playsinline="playsinline"
+    poster="/img/hero/preload.jpg"
+    preload="auto"
+  >
+    <source src="/videos/hero.mp4" type="video/mp4" />
+  </video>
 </div>
 <section>
-    <div class="container-fluid">
-        <div class="row card-columns">
-            <div class="col-lg-4">
-                <div class="card at-collapse">
-                    <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
-                        Trainingen
-                        <span>
-                            <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                        </span>
-                    </h2>
-                    <div class="card-body at-collapse-target flex-column">
-                        <p>Of je nu wilt beginnen met programmeren in Python of van plan bent aan de slag te gaan
-                            met de command line interface van Linux: met onze trainingen ga je gegarandeerd goed van
-                            start. Ook voor ervaren IT-specialisten valt er bij ons al sinds 1985 genoeg te leren.
-                            Denk aan Kubernetes, Ansible of git.</p>
-                        <p class="mb-0">Bekijk <a href="#trainingen" title="Trainingen">hier</a> al onze trainingen.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card at-collapse">
-                    <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo" id="Detachering">
-                        Detachering
-                        <span>
-                            <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                        </span>
-                    </h2>
-                    <div class="card-body at-collapse-target flex-column">
-                        <p>Soms heb je tijdelijk behoefte aan een extra IT-specialist om de continuiteit of snelheid
-                            van het bedrijf te behouden. Onze open source gurus kunnen je hierbij helpen. Of het nu
-                            gaat om implementatie- of migratie-trajecten, het versterken van een team of hulp bij
-                            design-vraagstukken: wij hebben doorgewinterde specialisten in dienst die jarenlange
-                            ervaring hebben met het werken voor zowel grote als kleinere bedrijven in (onder andere)
-                            de publieke-, financiele- en technologie-sector.</p>
-                        <p class="mb-0">Benieuwd wat we voor jou kunnen betekenen? Neem dan vrijblijvend
-                            <a href="#contact" title="Contact">contact</a> met ons op.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card at-collapse">
-                    <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo" id="Consultancy">
-                        Consultancy
-                        <span>
-                            <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                        </span>
-                    </h2>
-                    <div class="card-body at-collapse-target flex-column">
-                        <p> Een sparringspartner. Specifieke kennis. Een helpende hand. Advies bij design en/of
-                            implementatie. Onder begeleiding kennis maken met nieuwe tools en technieken: met onze
-                            consultancy dienstverlening is er altijd op een passende manier kennis voor je
-                            beschikbaar. Omdat we met een team van 15 ervaren open source gurus zijn, is er altijd
-                            brede en diepgaande expertise binnen handbereik. Je kunt consultancy bij ons inkopen per
-                            dagdeel, op project/offertebasis of met een strippenkaart.</p>
-                        <p>Meer weten? Neem dan <a href="#contact" title="Contact">contact</a> met ons op en we maken graag
-                            vrijblijvend een afspraak.</p>
-                        <p class="mb-0">We hebben ook een aantal <a href="#diensten" title="Diensten">diensten</a> waarin we
-                            onze kennis en kunde voorverpakt hebben.</p>
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row card-columns">
+      <div class="col-lg-4">
+        <div class="card at-collapse">
+          <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
+            Trainingen
+            <span>
+              <img alt="AT Computing logo" src="/img/logo/arrow.png" />
+            </span>
+          </h2>
+          <div class="card-body at-collapse-target flex-column">
+            <p>
+              Of je nu wilt beginnen met programmeren in Python of van plan bent
+              aan de slag te gaan met de command line interface van Linux: met
+              onze trainingen ga je gegarandeerd goed van start. Ook voor
+              ervaren IT-specialisten valt er bij ons al sinds 1985 genoeg te
+              leren. Denk aan Kubernetes, Ansible of git.
+            </p>
+            <p class="mb-0">
+              Bekijk <a href="#trainingen" title="Trainingen">hier</a> al onze
+              trainingen.
+            </p>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card at-collapse">
+          <h2
+            class="card-header at-collapse-toggle at-collapse-toggle-logo"
+            id="Detachering"
+          >
+            Detachering
+            <span>
+              <img alt="AT Computing logo" src="/img/logo/arrow.png" />
+            </span>
+          </h2>
+          <div class="card-body at-collapse-target flex-column">
+            <p>
+              Soms heb je tijdelijk behoefte aan een extra IT-specialist om de
+              continuiteit of snelheid van het bedrijf te behouden. Onze open
+              source gurus kunnen je hierbij helpen. Of het nu gaat om
+              implementatie- of migratie-trajecten, het versterken van een team
+              of hulp bij design-vraagstukken: wij hebben doorgewinterde
+              specialisten in dienst die jarenlange ervaring hebben met het
+              werken voor zowel grote als kleinere bedrijven in (onder andere)
+              de publieke-, financiele- en technologie-sector.
+            </p>
+            <p class="mb-0">
+              Benieuwd wat we voor jou kunnen betekenen? Neem dan vrijblijvend
+              <a href="#contact" title="Contact">contact</a> met ons op.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card at-collapse">
+          <h2
+            class="card-header at-collapse-toggle at-collapse-toggle-logo"
+            id="Consultancy"
+          >
+            Consultancy
+            <span>
+              <img alt="AT Computing logo" src="/img/logo/arrow.png" />
+            </span>
+          </h2>
+          <div class="card-body at-collapse-target flex-column">
+            <p>
+              Een sparringspartner. Specifieke kennis. Een helpende hand. Advies
+              bij design en/of implementatie. Onder begeleiding kennis maken met
+              nieuwe tools en technieken: met onze consultancy dienstverlening
+              is er altijd op een passende manier kennis voor je beschikbaar.
+              Omdat we met een team van 15 ervaren open source gurus zijn, is er
+              altijd brede en diepgaande expertise binnen handbereik. Je kunt
+              consultancy bij ons inkopen per dagdeel, op project/offertebasis
+              of met een strippenkaart.
+            </p>
+            <p>
+              Meer weten? Neem dan
+              <a href="#contact" title="Contact">contact</a> met ons op en we
+              maken graag vrijblijvend een afspraak.
+            </p>
+            <p class="mb-0">
+              We hebben ook een aantal
+              <a href="#diensten" title="Diensten">diensten</a> waarin we onze
+              kennis en kunde voorverpakt hebben.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <section class="container-fluid" id="diensten">
-    <header>
-        <h1>Diensten</h1>
-        <p class="subtitle">Dit zijn onze <span>diensten</span></p>
-        <p>Krijg meer inzicht in je Linux-landschap en maak onder begeleiding van onze professionals kennis met
-            nieuwe open source oplossingen.</p>
-    </header>
-    <div class="row">
-        <picture class="col-lg-6 d-flex justify-content-center align-items-center">
-            <img alt="Diensten" class="w-70" src="/img/section/services.png">
-        </picture>
-        <div class="col-lg-6 d-flex align-items-center">
-            <ul class="list-unstyled">
-                {{ range(where .Site.RegularPages "Type" "diensten").ByDate }}
-                <li class="d-flex">
-                    <i class="bx bx-lg {{ .Params.icon}} pt-2 pe-3"></i>
-                    <div>
-                        <a class="fw-bold" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-                        <p>{{ .Summary }}</p>
-                    </div>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
+  <header>
+    <h1>Diensten</h1>
+    <p class="subtitle">Dit zijn onze <span>diensten</span></p>
+    <p>
+      Krijg meer inzicht in je Linux-landschap en maak onder begeleiding van
+      onze professionals kennis met nieuwe open source oplossingen.
+    </p>
+  </header>
+  <div class="row">
+    <picture class="col-lg-6 d-flex justify-content-center align-items-center">
+      <img alt="Diensten" class="w-70" src="/img/section/services.png" />
+    </picture>
+    <div class="col-lg-6 d-flex align-items-center">
+      <ul class="list-unstyled">
+        {{ range(where .Site.RegularPages "Type" "diensten").ByDate }}
+        <li class="d-flex">
+          <i class="bx bx-lg {{ .Params.icon}} pt-2 pe-3"></i>
+          <div>
+            <a class="fw-bold" href="{{ .RelPermalink }}" title="{{ .Title }}"
+              >{{ .Title }}</a
+            >
+            <p>{{ .Summary }}</p>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
     </div>
+  </div>
 </section>
 <section class="container-fluid" id="kennis">
-    <header>
-        <h1>Kennis</h1>
-        <p class="subtitle">Dit is waar we <span>goed</span> in zijn</p>
-        <p>We investeren bij AT Computing veel in de ontwikkeling en certificering van onze gurus. Omdat we al sinds
-            onze oprichting leveranciersonafhankelijk zijn, mag je van ons een objectief en gedegen advies
-            verwachten zonder dubbele agenda.</p>
-    </header>
-    <div class="row">
-        <div class="col-lg-6 mb-3">
-            <ul class="list-unstyled">
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Linux (Red Hat / Ubuntu / CentOS / Suse / Fedora / Debian)</small>
-                        <small>100%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-100"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Python</small>
-                        <small>100%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-100"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Kubernetes</small>
-                        <small>80%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-80"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Ansible</small>
-                        <small>100%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-100"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Vault</small>
-                        <small>90%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-90"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Consul</small>
-                        <small>80%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-80"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Cloud Automation (AWS, GCP, Azure)</small>
-                        <small>60%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-60"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="col-lg-6 mb-3">
-            <ul class="list-unstyled">
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Containers (Docker, Podman, CRI-O)</small>
-                        <small>80%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-80"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Nomad</small>
-                        <small>60%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-60"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Git/GitLab</small>
-                        <small>90%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-90"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Terraform</small>
-                        <small>80%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-80"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>Infrastructure as Code (IaC)</small>
-                        <small>100%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-100"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>CI/CD Pipelines</small>
-                        <small>90%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-90"></div>
-                    </div>
-                </li>
-                <li class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small>DevOps Engineering / Site Reliability Engineering</small>
-                        <small>90%</small>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-90"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+  <header>
+    <h1>Kennis</h1>
+    <p class="subtitle">Dit is waar we <span>goed</span> in zijn</p>
+    <p>
+      We investeren bij AT Computing veel in de ontwikkeling en certificering
+      van onze gurus. Omdat we al sinds onze oprichting
+      leveranciersonafhankelijk zijn, mag je van ons een objectief en gedegen
+      advies verwachten zonder dubbele agenda.
+    </p>
+  </header>
+  <div class="row">
+    <div class="col-lg-6 mb-3">
+      <ul class="list-unstyled">
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small
+              >Linux (Red Hat / Ubuntu / CentOS / Suse / Fedora / Debian)</small
+            >
+            <small>100%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-100"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Python</small>
+            <small>100%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-100"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Kubernetes</small>
+            <small>80%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-80"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Ansible</small>
+            <small>100%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-100"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Vault</small>
+            <small>90%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-90"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Consul</small>
+            <small>80%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-80"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Cloud Automation (AWS, GCP, Azure)</small>
+            <small>60%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-60"></div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bxl-gitlab"></i>
-                <p class="h2 fw-medium mb-1">12341</p>
-                <p class="mb-0">Commits in onze GitLab</p>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bx-wink-smile"></i>
-                <p class="h2 fw-medium mb-1">19</p>
-                <p class="mb-0">Experts bij ons werkzaam</p>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bxs-book-reader"></i>
-                <p class="h2 fw-medium mb-1">24</p>
-                <p class="mb-0">Trainingen bij ons te volgen</p>
-            </div>
-        </div>
+    <div class="col-lg-6 mb-3">
+      <ul class="list-unstyled">
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Containers (Docker, Podman, CRI-O)</small>
+            <small>80%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-80"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Nomad</small>
+            <small>60%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-60"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Git/GitLab</small>
+            <small>90%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-90"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Terraform</small>
+            <small>80%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-80"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>Infrastructure as Code (IaC)</small>
+            <small>100%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-100"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>CI/CD Pipelines</small>
+            <small>90%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-90"></div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small>DevOps Engineering / Site Reliability Engineering</small>
+            <small>90%</small>
+          </div>
+          <div class="progress">
+            <div class="progress-bar w-90"></div>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bxl-gitlab"></i>
+        <p class="h2 fw-medium mb-1">12341</p>
+        <p class="mb-0">Commits in onze GitLab</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bx-wink-smile"></i>
+        <p class="h2 fw-medium mb-1">19</p>
+        <p class="mb-0">Experts bij ons werkzaam</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bxs-book-reader"></i>
+        <p class="h2 fw-medium mb-1">24</p>
+        <p class="mb-0">Trainingen bij ons te volgen</p>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="container-fluid" id="onze-partnerships">
-    <header>
-        <h1>Onze partnerships</h1>
-        <p class="subtitle">Dit zijn op onze <span>partnerships</span></p>
-    </header>
-    <ul class="row list-unstyled">
-        <li class="col-lg-3 offset-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://www.hashicorp.com/" target="_blank" title="HashiCorp">
-                <img alt="HashiCorp" class="w-100" src="/img/partners/hashicorp.png">
-            </a>
-        </li>
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://linuxfoundation.org/" target="_blank" title="The Linux Foundation">
-                <img alt="The Linux Foundation" class="w-100" src="/img/partners/lf_atp.png">
-            </a>
-        </li>
-    </ul>
+  <header>
+    <h1>Onze partnerships</h1>
+    <p class="subtitle">Dit zijn op onze <span>partnerships</span></p>
+  </header>
+  <ul class="row list-unstyled">
+    <li
+      class="col-lg-3 offset-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a
+        class="w-75"
+        href="https://www.hashicorp.com/"
+        target="_blank"
+        title="HashiCorp"
+      >
+        <img alt="HashiCorp" class="w-100" src="/img/partners/hashicorp.png" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a
+        class="w-75"
+        href="https://linuxfoundation.org/"
+        target="_blank"
+        title="The Linux Foundation"
+      >
+        <img
+          alt="The Linux Foundation"
+          class="w-100"
+          src="/img/partners/lf_atp.png"
+        />
+      </a>
+    </li>
+  </ul>
 </section>
 <section class="container-fluid" id="onze-klanten">
-    <header>
-        <h1>Onze klanten</h1>
-        <p class="subtitle">Wij werken onder andere voor deze <span>klanten</span></p>
-    </header>
-    <ul class="row list-unstyled">
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://rivm.nl/" target="_blank" title="RIVM">
-                <img alt="RIVM" class="w-100" src="/img/clients/rivm.jpg">
-            </a>
-        </li>
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://sabaas.nl/" target="_blank" title="Sabaas">
-                <img alt="Sabaas" class="w-100" src="/img/clients/sabaas.png">
-            </a>
-        </li>
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://vijfhart.nl/" target="_blank" title="Vijfhart">
-                <img alt="Vijfhart" class="w-100" src="/img/clients/vijfhart.png">
-            </a>
-        </li>
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://kpn.com/" target="_blank" title="KPN">
-                <img alt="KPN" class="w-100" src="/img/clients/kpn.png">
-            </a>
-        </li>
-        <li class="col-lg-3 offset-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://www.sidn.nl/" target="_blank" title="SIDN">
-                <img alt="SIDN" class="w-100" src="/img/clients/sidn.png">
-            </a>
-        </li>
-        <li class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center">
-            <a class="w-75" href="https://werktools.com/" target="_blank" title="Werktools">
-                <img alt="Werktools" class="w-100" src="/img/clients/werktools.png">
-            </a>
-        </li>
-    </ul>
+  <header>
+    <h1>Onze klanten</h1>
+    <p class="subtitle">
+      Wij werken onder andere voor deze <span>klanten</span>
+    </p>
+  </header>
+  <ul class="row list-unstyled">
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a class="w-75" href="https://rivm.nl/" target="_blank" title="RIVM">
+        <img alt="RIVM" class="w-100" src="/img/clients/rivm.jpg" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a class="w-75" href="https://sabaas.nl/" target="_blank" title="Sabaas">
+        <img alt="Sabaas" class="w-100" src="/img/clients/sabaas.png" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a
+        class="w-75"
+        href="https://vijfhart.nl/"
+        target="_blank"
+        title="Vijfhart"
+      >
+        <img alt="Vijfhart" class="w-100" src="/img/clients/vijfhart.png" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a class="w-75" href="https://kpn.com/" target="_blank" title="KPN">
+        <img alt="KPN" class="w-100" src="/img/clients/kpn.png" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 offset-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a class="w-75" href="https://www.sidn.nl/" target="_blank" title="SIDN">
+        <img alt="SIDN" class="w-100" src="/img/clients/sidn.png" />
+      </a>
+    </li>
+    <li
+      class="col-lg-3 col-sm-4 col-6 d-flex justify-content-center align-items-center"
+    >
+      <a
+        class="w-75"
+        href="https://werktools.com/"
+        target="_blank"
+        title="Werktools"
+      >
+        <img alt="Werktools" class="w-100" src="/img/clients/werktools.png" />
+      </a>
+    </li>
+  </ul>
 </section>
 <section class="container-fluid" id="trainingen">
-    <header>
-        <h1>Trainingen</h1>
-        <p class="subtitle">Dit zijn onze <span>trainingen</span></p>
-        <p>We leiden sinds 1985 IT professionals op met onze trainingen op gebied van UNIX/Linux en diverse open
-            source tools en programmeertalen. Welke training je bij ons ook volgt: we gaan voor niets minder dan
-            topkwaliteit van materiaal, docent en lab-omgeving.</p>
-        <p>Heb je specifieke trainingswensen? Geen probleem! We leveren met veel plezier maatwerktrainingen die we
-            zoveel mogelijk afstemmen op jouw praktijksituatie.
-            <a href="#contact" title="Contact opnemen">Neem gerust contact met ons op</a> om je trainingswensen te
-            delen en we gaan graag met je in gesprek over een passende oplossing.</p>
-    </header>
-    <div class="flowchart">
-        <ul class="courses">
-            <li class="course no-indent at-collapse">
-                <h2 class="at-collapse-toggle">Linux/UNIX Fundamentals</h2>
-                <div class="content at-collapse-target">
-                    <p>
-                        Wil jij met Linux aan de slag? Daar helpen we je graag bij! Zoals de naam al doet vermoeden,
-                        leggen we met onze Linux/UNIX Fundamentals training al sinds 1985 een zeer solide basis.
-                    </p>
-                    <p>
-                        De training geeft inzicht in de “filosofie” achter het werken met Linux en UNIX en maakt je
-                        vertrouwd met de basisbegrippen en elementaire functies. Na de training kun je gebruik maken
-                        van de mogelijkheden die het filesysteem biedt, van de belangrijkste
-                        bestandsbeheer-commando’s en de editor. Bovendien heb je kennisgemaakt met vele standaard
-                        Linux/UNIX-utilities.
-                    </p>
-                    <div class="row">
-                        <div class="col-8">
-                            <ul class="list-unstyled">
-                                <li><i class="bx bxs-wrench me-1"></i> Linux</li>
-                                <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                <li><i class="bx bx-chalkboard me-1"></i> Klassikaal / Virtueel / Hybride</li>
-                                <li><i class="bx bxs-flask me-1"></i> Hands-on lab</li>
-                                <li><i class="bx bx-chat me-1"></i> NL / EN</li>
-                                <li><i class="bx bx-badge-check me-1"></i> Voorkennis: ervaring met het gebruik van
-                                    een computer
-                                </li>
-                            </ul>
-                        </div>
-                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                            <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                        </picture>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="https://www.vijfhart.nl/opleidingen/linux-unix-fundamentals/"
-                                    target="_blank"> Meer informatie (NL)
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.vijfhart.nl/opleidingen/linux-unix-fundamentals-english/"
-                                   target="_blank"> More information (EN)
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class="courses">
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">Linux Infrastructure</h3>
-                        <div class="content at-collapse-target">
-                            <p>
-                                Steeds meer bedrijven en (DevOps) teams ontdekken de kracht en mogelijkheden van
-                                open source software, met Linux-servers als kloppend hart van hun IT-omgeving.
-                                Hoewel je met een Linux-distributie een kist met enorm veel gereedschap in huis
-                                hebt, kan de leercurve om hiermee vlot uit de voeten te kunnen best pittig zijn. De
-                                Linux Infrastructure training helpt je hierbij.
-                            </p>
-                            <p>
-                                Tijdens de training komen alle onderwerpen aan bod die je tijdens je dagelijks werk
-                                met Linux tegenkomt. Denk aan (veilige) toegang op afstand, configuratie van netwerk
-                                en storage, het installeren en updaten van software en het opsporen en oplossen van
-                                problemen. De training geeft de ontwikkeling van je Linux en command line skills een
-                                vliegende start. Alle documentatie is Engelstalig. De spreektaal tijdens de cursus
-                                is Engels, tenzij alle deelnemers Nederlandstalig zijn.
-                            </p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> Linux</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: Linux/UNIX Fundamentals</li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/linux-infrastructure/"
-                                           target="_blank"> Meer informatie (NL)</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/linux-infrastructure-english/"
-                                           target="_blank"> More information (EN)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <ul class="courses">
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">VERWACHT: Linux Infrastructure Advanced</h4>
-                                <div class="content at-collapse-target">
-                                    <p class="fw-bold"><i class='bx bxs-message-alt-error bx-lg' style='color:#3399cc'></i>
-                                    Deze training is momenteel in ontwikkeling en wordt in 2023 verwacht.</p>
-                                    <p>Duik dieper onder de motorkap van Linux-distributies met deze Linux
-                                        Infrastructure Advanced training, het perfecte vervolg op Linux
-                                        Infrastructure en onze DevOps-georiënteerde Fundamentals
-                                        trainingen zoals Git, Ansible, Docker, Kubernetes en CI/CD.</p>
-                                    <p class="mb-0">Tijdens deze Linux Infrastructure Advanced training komen onder
-                                        andere de volgende onderwerpen aan bod:
-                                    </p>
-                                    <ul class="mb-3">
-                                        <li>Troubleshooting (/proc, /sys, gebruikslimieten, system calls,
-                                            multithreading)
-                                        </li>
-                                        <li>Performance analyze basics (top, atop, nice, ionice)</li>
-                                        <li>Storage (verdieping LVM)</li>
-                                        <li>Networks (nftables, NetworkManager, traceroute, tcpdump)</li>
-                                        <li>Filesystemen (mkfs, tune2fs/xfs_admin, fsck/xfs_repair, journaling)</li>
-                                        <li>Systemd (verdieping)</li>
-                                        <li>SELinux (concept en diverse opties/commando’s)</li>
-                                        <li>Tijd (tijdstempels, tijdzones, NTP)</li>
-                                        <li>Logging (rsyslogd, logrotate)</li>
-                                    </ul>
-                                    <p>Alle documentatie is Engelstalig. De spreektaal tijdens de cursus is Engels,
-                                        tenzij alle deelnemers Nederlandstalig zijn.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Linux</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="">Aanmelden voor de wachtlijst</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Docker Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Docker is de de-facto standaard op gebied van applicatiecontainers. Tijdens
-                                        deze training komen alle onderwerpen aan bod die essentieel zijn om de
-                                        werking van containers te begrijpen en om ermee te kunnen werken. Zo leg jij
-                                        de basis om jouw applicatie(s) gedistribueerd, schaalbaar en fouttolerant te
-                                        maken, terwijl je het beheer vereenvoudigt.</p>
-                                    <p>Tijdens deze driedaagse training maak je kennis met de levenscyclus van
-                                        applicatiecontainers, de architectuur en geschiedenis van Docker, de
-                                        krachtige API, het gebruik van registries, de Docker Hub, het maken van
-                                        Dockerfiles, het gebruik van opslag en netwerken en sluiten we af met een
-                                        introductie in Kubernetes.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Docker</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Docker" class="w-70" src="/img/flowchart/docker.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/docker-fundamentals-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">CI/CD Fundamentals with Gitlab</h4>
-                                <div class="content at-collapse-target">
-                                    <p>DevOps en Continuous Delivery vormen een perfecte combinatie, waarbij
-                                        Continuous Delivery praktische invulling geeft aan het <i>hoe</i> van
-                                        DevOps. Een van de krachtigste wapens uit het arsenaal van Continuous
-                                        Delivery is de CI/CD pipeline. Tijdens deze tweedaagse training leer je wat
-                                        een CI/CD pipeline is en hoe je zelf een pipeline kunt bouwen met behulp van
-                                        GitLab.</p>
-                                    <p>Dit komt allemaal aan bod: introductie in Continuous Delivery (concepten,
-                                        artifacts, continuous integration, continuous delivery/delopyment), Git
-                                        introductie (lokaal werken, centraal werken, belangrijke commando's), GitLab
-                                        introductie (architectuur, jobs, stages), basisprincipes van (Docker)
-                                        containers en container images, GitLab runners, GitLab pipelines en de
-                                        basisprincipes van Kubernetes. Uitgangspunt voor het practicum is een kleine
-                                        voorbeeld-applicatie
-                                        waarvoor stapsgewijs een pipeline wordt gebouwd die uiteindelijk resulteert
-                                        in een deployment op Kubernetes.</p>
-                                    <p>Alle documentatie is Engelstalig. De spreektaal tijdens de cursus is Engels,
-                                        tenzij alle deelnemers Nederlandstalig zijn. Kennis van Git, Docker en
-                                        Kubernetes is een pré maar geen must.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Gitlab, Docker, Kubernetes
-                                                </li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Gitlab" class="w-70" src="/img/flowchart/gitlab.png">
-                                        </picture>
-                                        <div class="d-flex justify-content-end">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <a href="https://www.vijfhart.nl/opleidingen/ci-cd-fundamentals-with-gitlab/"
-                                                       target="_blank"> Meer informatie (NL)</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Git Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Git is een gedistribueerd versiebeheersysteem waarbij de nadruk ligt op
-                                        snelheid, data-integriteit, en gedistribueerd werken. Het is origineel
-                                        ontworpen voor de Linux kernel, waarbij veel ontwikkelaars samenwerken en de
-                                        code erg vaak wordt aangepast. Hierbij is het noodzakelijk dat het
-                                        doorvoeren van de aanpassingen aan de code in het versiebeheersysteem snel
-                                        en betrouwbaar kan worden gedaan. Alhoewel Git initieel voor versiebeheer
-                                        van software is ontwikkeld, kan het voor alle tekst-georiënteerde documenten
-                                        worden gebruikt. Het is daarom ook prima te gebruiken voor systeem- en
-                                        applicatiebeheerders die bijvoorbeeld configuratiebestanden onder
-                                        versiebeheer willen zetten.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Git</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Git" class="w-70" src="/img/flowchart/git.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/git-fundamentals/"
-                                                   target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Ansible Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Ansible is een tool voor configuratie management, provisioning en deployment.
-                                        Het vereenvoudigt en standaardiseert het dagelijks werk van
-                                        systeembeheerders. Gebruik van Ansible zorgt tevens voor controle en
-                                        stabiliteit: je verhoogt de kosteneffectiviteit, kunt (security) baselines
-                                        afdwingen en reduceert de werklast.</p>
-                                    <p>Tijdens deze training leer je hoe het ecosysteem van Ansible in elkaar
-                                        steekt: playbooks, rollen en de belangrijkste commando's komen allemaal aan
-                                        bod. Op basis van de hands-on opdrachten doe je ook meteen een dosis
-                                        praktijkervaring op.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Ansible</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Ansible" class="w-70" src="/img/flowchart/ansible.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/ansible-fundamentals/"
-                                                   target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/ansible-fundamentals-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <ul class="courses">
-                                    <li class="course at-collapse">
-                                        <h5 class="at-collapse-toggle">Ansible Advanced</h5>
-                                        <div class="content at-collapse-target">
-                                            <p>Tijdens deze Ansible Advanced training, een vervolg op onze Ansible
-                                                Fundamentals training, duiken we dieper in de wereld die
-                                                Ansible heet.</p>
-                                            <p>Wat komt er zoal aan bod? Denk aan Dynamic inventory, Facts &amp;
-                                                caching, wellicht ongebruikelijke modules, Templating, Jinja2
-                                                filters, Lookup plugins, Custom Ansible modules, Collections en we
-                                                werpen ook nog een blik op callback plugins.</p>
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="bx bxs-wrench me-1"></i> Ansible</li>
-                                                        <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel /
-                                                            Hybride
-                                                        </li>
-                                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                        <li><i class="bx bx-badge-check"></i> Voorkennis: Ansible Fundamentals
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <picture
-                                                        class="col-4 d-flex justify-content-center align-items-center">
-                                                    <img alt="Ansible" class="w-70"
-                                                         src="/img/flowchart/ansible.png">
-                                                </picture>
-                                            </div>
-                                            <div class="d-flex justify-content-end">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="https://www.vijfhart.nl/opleidingen/ansible-advanced-english/"
-                                                           target="_blank"> More information (EN)</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Kubernetes Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Kubernetes is de wereldwijde standaard wanneer je applicatiecontainers op
-                                        schaal wilt draaien in een datacenter (zowel on-premises als in de cloud).
-                                        Tijdens de Kubernetes Fundamentals training leer je over de werking en
-                                        concepten van Kubernetes zodat je er vlot mee uit de voeten kunt. Op basis
-                                        van een hands-on practicum leer je hoe je de rijke mogelijkheden van
-                                        Kubernetes kunt beheren en hoe de diverse onderdelen binnen Kubernetes
-                                        onderling samenhangen.</p>
-                                    <p>Deze training vormt een uitstekend voorbereiding op het Certified Kubernetes
-                                        Application Developer
-                                        (<a href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-application-developer-ckad-examenvoucher/"
-                                            target="_blank">CKAD</a>) examen van de Cloud Native Computing
-                                        Foundation
-                                        (<a href="https://www.cncf.io/certification/ckad/"
-                                            target="_blank">CNCF</a>). <i>Dit examen is los verkrijgbaar
-                                            en wordt niet tijdens de training afgenomen.</i></p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Kubernetes</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li>Optioneel examen: Certified Kubernetes Application Developer
-                                                    (CKAD)
-                                                </li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture
-                                                class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Kubernetes" class="w-70"
-                                                 src="/img/flowchart/kubernetes.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <ul class="courses">
-                                    <li class="course at-collapse">
-                                        <h5 class="at-collapse-toggle">Kubernetes CKA Extension</h5>
-                                        <div class="content at-collapse-target">
-                                            <p>Samen met de Kubernetes Fundamentals training, voorziet deze CKA
-                                                Extension in alle onderwerpen die relevant zijn in voorbereiding op
-                                                het CKA examen van The Linux Foundation.</p>
-                                            <p>Tijdens deze eendaagse extensie leer je meer over Kubernetes onder
-                                                de motorkap, hoe je werkt met diverse objecten binnen Kubernetes en
-                                                krijg je inzicht in de onderlinge afhankelijkheden van diverse
-                                                componenten.</p>
-                                            <p>Gecombineerd met de Kubernetes Fundamentals training bereid je je
-                                                uitstekend voor op het Certified Kubernetes Administrator
-                                                (<a href="https://www.vijfhart.nl/opleidingen/certified-kubernetes-administrator-cka-examenvoucher/"
-                                                    target="_blank">CKA</a>) examen van de Cloud Native Computing
-                                                Foundation
-                                                (<a href="https://www.cncf.io/certification/cka/"
-                                                    target="_blank">CNCF</a>). <i>Dit examen is los verkrijgbaar en
-                                                    wordt niet tijdens de training afgenomen.</i></p>
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="bx bxs-wrench me-1"></i> Kubernetes</li>
-                                                        <li><i class="bx bxs-calendar me-1"></i> 1 dag</li>
-                                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel /
-                                                            Hybride
-                                                        </li>
-                                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                        <li>Optioneel examen: Certified Kubernetes Administrator
-                                                            (CKA)
-                                                        </li>
-                                                        <li><i class="bx bx-badge-check"></i> Voorkennis: Kubernetes
-                                                            Fundamentals
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <picture
-                                                        class="col-4 d-flex justify-content-center align-items-center">
-                                                    <img alt="Kubernetes" class="w-70"
-                                                         src="/img/flowchart/kubernetes.png">
-                                                </picture>
-                                            </div>
-                                            <div class="d-flex justify-content-end">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="https://www.vijfhart.nl/opleidingen/kubernetes-fundamentals-cka-extension-english/"
-                                                           target="_blank"> More information (EN)</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">NIEUW: Terraform Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Terraform is een van de populairste tools van het Amerikaanse bedrijf
-                                        HashiCorp en niet zonder reden. Wie met een hybride IT landschap of
-                                        multi-cloud omgeving van doen heeft, kan met behulp van Terraform op
-                                        eenduidige en gestructureerde manier in provisioning van IT-infra voorzien.
-                                        Door een combinatie van de krachtige HashiCorp Configuration Language (HCL)
-                                        en een enorme hoeveelheid providers voor een scala aan vendoren,
-                                        is Terraform een zeer veelzijdig stuk gereedschap om in te zetten
-                                        bij het implementeren van Infrastructure as Code.</p>
-                                    <p>Tijdens deze training leer je de belangrijkste concepten van Terraform en
-                                        ervaar je in het hands-on lab hoe je met deze krachtige tool een (Linux gebaseerde)
-                                        IT-infrastructuur kunt neerzetten.</p>
-                                    <p>De tweedaagse training is uitgelijnd op de eisen voor het officiële Terraform Associate
-                                        examen dat je via HashiCorp kunt afnemen. Dit examen is niet bij de training inbegrepen.</p>
-                                    <p>Deze training wordt in het Engels verzorgd, tenzij alle deelnemers Nederlandstalig zijn.
-                                        Het cursusmateriaal is in het Engels.</p>
-                                    <p class="mb-0">Tijdens deze Terraform Fundamentals training komen onder andere de volgende onderwerpen aan bod:</p>
-                                    <ul class="mb-3">
-                                        <li>Introductie</li>
-                                        <li>Variabelen</li>
-                                        <li>Providers</li>
-                                        <li>Expressies</li>
-                                        <li>Resources</li>
-                                        <li>Loops</li>
-                                        <li>State</li>
-                                        <li>Modules</li>
-                                        <li>Workspaces</li>
-                                        <li>Terraform Cloud / Enterprise</li>
-                                        <li>Provisioning</li>
-                                        <li>Best Practices</li>
-                                    </ul>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Terraform</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Terraform" class="w-70"
-                                                 src="/img/flowchart/terraform.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/terraform-fundamentals/"
-                                                   target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/terraform-fundamentals-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">NIEUW: HashiCorp Vault Fundamentals</h4>
-                                <div class="content at-collapse-target">
-                                    <p>HashiCorp Vault is een gevestigde naam op gebied van secrets management.
-                                        Deze training is bedoeld voor personen die nog geen kennis of ervaring met
-                                        HashiCorp Vault hebben, maar wel van plan zijn om hiermee te gaan werken of
-                                        de tool te implementeren. In twee dagen tijd krijg je een diepgaand inzicht
-                                        in de verschillende onderdelen waaruit de tool bestaat. Daarnaast komen best practices aan bod
-                                        en doe je in de lab-omgeving hands-on ervaring op met het installeren, configureren en gebruiken van Vault.</p>
-                                    <p>De behandelde onderwerpen sluiten aan op de exameneisen van de officiële
-                                        <a href="https://www.hashicorp.com/certification/vault-associate" target="_blank">Vault Associate</a> certificering van HashiCorp.
-                                        Na het volgen van de training heb je een uitstekende basis voor het behalen van deze certificering.</p>
-                                    <p>De training begint met het een uitleg van de basisprincipes van secrets management in het algemeen en de eigenschappen van
-                                        HashiCorp Vault in het bijzonder, om vervolgens stap voor stap uit te bouwen naar het begrijpen van de belangrijkste
-                                        functies die deze tool te bieden heeft.</p>
-                                    <p class="mb-0">Tijdens deze HashiCorp Vault Fundamentals training komen onder andere de volgende onderwerpen aan bod:</p>
-                                    <ul class="mb-3">
-                                        <li>Introductie</li>
-                                        <li>Installatie</li>
-                                        <li>Secrets</li>
-                                        <li>Authenticatie &amp; Authorisatie</li>
-                                        <li>Policies</li>
-                                        <li>Entities, aliases &amp; groups</li>
-                                        <li>Tokens</li>
-                                        <li>Architecture</li>
-                                        <li>Vault Agent</li>
-                                        <li>Auto-Unseal</li>
-                                        <li>High Availability</li>
-                                        <li>Raft storage</li>
-                                        <li>Vault Enterprise</li>
-                                        <li>Best practices</li>
-                                    </ul>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Vault</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Linux Infrastructure
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="vault" class="w-80"
-                                                 src="/img/flowchart/Vault.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/vault-fundamentals/"
-                                                target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">Shell Scripting Fundamentals</h3>
-                        <div class="content at-collapse-target">
-                            <p>Wie eenmaal de smaak van Linux/UNIX te pakken heeft, wil al snel meer: zelf scripts
-                                schrijven waarin meer gebeurt dan alleen een paar commando’s achter elkaar
-                                uitvoeren.</p>
-                            <p>De shell is niet alleen de standaard commando-interpreter in Linux/UNIX, maar het is
-                                ook een complete programmeertaal. En daarmee kunnen heel uitgebreide eigen
-                                commando’s geschreven worden. De shell maakt dan ook een belangrijk onderdeel uit
-                                van de training Shell Scripting Fundamentals. In shell scripts wordt vaak gebruik gemaakt van
-                                twee belangrijke commando’s: sed en awk. Sed is een “batch-editor”. Daarmee kun je
-                                het editen van een tekstfile automatisch afhandelen. Awk is een report-generator.
-                                Logfiles en andere verzamelde data kunnen met awk worden geanalyseerd, er kunnen
-                                delen uit die files worden geselecteerd, daarop kunnen berekeningen worden
-                                losgelaten en output-print kan worden vormgegeven.</p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> Linux</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: Linux/UNIX Fundamentals</li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/shell-scripting-fundamentals/"
-                                           target="_blank"> Meer informatie (NL)</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/shell-scripting-fundamentals-english/"
-                                           target="_blank"> More information (EN)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="course no-indent at-collapse">
-                <h2 class="at-collapse-toggle">Leren programmeren in Python</h2>
-                <div class="content at-collapse-target">
-                    <p>Het leren van de programmeertaal Python is voor elke (toekomstige) softwareontwikkelaar een
-                        aanwinst. Het kunnen programmeren in Python is een veel gevraagde specialisatie in steeds
-                        meer vacatures en dit zal naar verwachting alleen maar verder toenemen. Dit komt onder
-                        andere omdat het programmeren in deze taal redelijk eenvoudig te leren is en de
-                        programmeertaal bij uitstek interessant is voor mensen die zich meer willen bezighouden met
-                        kunstmatige intelligentie, big data, cyber security-projecten en machine learning. En laten
-                        dit nu net onderwerpen zijn waar veel bedrijven zich verder in willen specialiseren.</p>
-                    <p><strong>Wat leer je tijdens deze 5-daagse training?</strong><br>
-                        De 5-daagse training ‘Leren programmeren in Python’ is specifiek bedoeld voor iedereen die
-                        nog geen ervaring heeft met programmeren en wil starten met het leren programmeren in
-                        Python. Tijdens de training behandelen we de essentiële aspecten van het programmeren in het
-                        algemeen en van de programmeertaal Python in het bijzonder. Je leert de begrippen kennen die
-                        een rol spelen bij het programmeren, met name de beginselen van algoritmiek: in welke
-                        stappen kom je van de probleemstelling naar een oplossing.</p>
-                    <p>We gaan concreet in op de syntax van de programmeertaal Python en leren we je omgaan met de
-                        uitgebreide mogelijkheden van Python waardoor je al snel Python-programma’s kunt bouwen. Op
-                        de laatste dag van de training gaan we in op de object-georiënteerde programmeerstijl, die
-                        ook bruikbaar is in Python.</p>
-                    <div class="row">
-                        <div class="col-8">
-                            <ul class="list-unstyled">
-                                <li><i class="bx bxs-wrench me-1"></i> Python</li>
-                                <li><i class="bx bxs-calendar me-1"></i> 5 dagen</li>
-                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                <li><i class="bx bx-badge-check"></i> Voorkennis: Voor het volgen van de training is
-                                    geen programmeerervaring nodig. Je leert in deze training de kneepjes van het
-                                    programmeren zelf én de syntax van de programmeertaal Python.
-                                </li>
-                            </ul>
-                        </div>
-                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                            <img alt="Python" class="w-70" src="/img/flowchart/python.png">
-                        </picture>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="https://www.vijfhart.nl/opleidingen/leren-programmeren-in-python/"
-                                   target="_blank"> Meer informatie (NL)</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.vijfhart.nl/opleidingen/learn-to-program-in-python-english/"
-                                   target="_blank"> More information (EN)</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class="courses">
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">De programmeertaal Python</h3>
-                        <div class="content at-collapse-target">
-                            <p>Python is een programmeertaal die op vele fronten inzetbaar is. Begin jaren ’90
-                                heeft de Nederlander Guido van Rossum voortgeborduurd op de fundamenten van de taal
-                                ABC die in de jaren ’80 bij het CWI (Centrum voor Wiskunde en Informatica) in
-                                Amsterdam was ontwikkeld. Inmiddels is Python al lang geen Nederlandse
-                                aangelegenheid meer: er wordt wereldwijd met en aan de taal Python gewerkt.</p>
-                            <p>Python wordt op veel plaatsen gebruikt in scripts voor systeembeheer, als makkelijke
-                                taal voor het bouwen van portabele grafische user interfaces, bij web-applicaties en
-                                ga zo maar door. De installatieprogrammatuur van vele Linux implementaties,
-                                waaronder RedHat, is bijvoorbeeld gebouwd met Python.</p>
-                            <p>Tijdens deze driedaagse training leer je veel over de syntax, toepassingen, kracht
-                                en valkuilen van Python. Aan de hand van hands-on opdrachten doe je tevens de nodige
-                                praktijkervaring op met het schrijven van code in de taal.</p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> Python</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: programmeer-ervaring in
-                                            een (andere) programmeertaal is noodzakelijk.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="Python" class="w-70" src="/img/flowchart/python.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/de-programmeertaal-python-voor-ervaren-programmeurs/"
-                                           target="_blank"> Meer informatie (NL)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <ul class="courses">
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Advanced Python</h4>
-                                <div class="content at-collapse-target">
-                                    <p>De training Advanced Python behandelt de gevorderde onderwerpen die van
-                                        belang kunnen zijn bij het programmeren in grotere projecten. Enerzijds gaan
-                                        we in op algemene onderwerpen die relevant zijn voor alle projecten, zoals
-                                        het testen en debuggen van de Python code, het bouwen van een package,
-                                        etcetera, maar ook op algemene programmeertechnieken zoals multithreading.
-                                        Anderzijds passeren ook specifieke bibliotheken de revue, zoals toegang tot
-                                        databases en data-overdracht via netwerk sockets.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Python</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 4 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: leren programmeren
-                                                    in python
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Python" class="w-70" src="/img/flowchart/python.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/advanced-python/"
-                                                   target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/advanced-python-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Numerical Python</h4>
-                                <div class="content at-collapse-target">
-                                    <p>De cursus Numerical Python geeft inzicht in het gebruik van de Python
-                                        pakketten NumPy, SciPy en Matplotlib. Deze pakketten leveren faciliteiten
-                                        voor wetenschappelijk en technisch rekenwerk. Het zijn Open Source pakketten
-                                        met een zeer vrije licentie. De nadruk ligt bij deze software op gemak en
-                                        efficiëntie bij de manipulatie van grote hoeveelheden getallen.</p>
-                                    <p>Na deze cursus kun je binnen Python gebruik maken van speciale
-                                        NumPy-ndarray-faciliteiten. Je hebt praktische oefeningen gemaakt met de
-                                        meest-gebruikte NumPy-functies (methods) en datatypen. Je kunt één- en
-                                        tweedimensionale data visualiseren met Matplotlib en plot-functies gebruiken
-                                        om de functionaliteit van SciPy te verkennen. Met behulp van functies in
-                                        SciPy kun je programma’s maken voor complexe taken.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Python</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 1 dag</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: De programmeertaal
-                                                    Python of vergelijkbare kennis.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Python" class="w-70" src="/img/flowchart/python.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/numerical-python/"
-                                                   target="_blank"> Meer informatie (NL)</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/numerical-python-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Python voor data analyse (Pandas)</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Voor data analyse met Python is gebruik van PANDAS de juiste keuze.</p>
-                                    <p>In de wereld van data analyse is er een langdurige "strijd" gaande tussen de
-                                        programmeertaal R, ontwikkeld door statistici, en Python. Een belangrijk
-                                        voordeel van R was de mogelijkheid om middels DataFrame een representatie
-                                        van een database tabel of spreadsheet (incl. schema informatie) weer te
-                                        geven.</p>
-                                    <p>Python voorzag niet in deze functionaliteit totdat PANDAS het levenslicht
-                                        zag. Wes McKinney bracht PANSAS medio 2010 uit en heeft Python daarmee
-                                        voorien van extreem krachtige input/output en data-manipulatie
-                                        mogelijkheden.</p>
-                                    <p>Tijdens deze tweedaagse training leren we je de ins en outs van PANDAS en
-                                        doe je direct in een hands-on lab ervaring op.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> Python</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: De programmeertaal
-                                                    Python of vergelijkbare kennis.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="Python" class="w-70" src="/img/flowchart/python.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/python-for-data-analysis-introduction-to-pandas-english-course/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">De programmeertaal C</h3>
-                        <div class="content at-collapse-target">
-                            <p>De training Programmeertaal C behandelt de verschillende aspecten van het
-                                programmeren in de taal C. Je leert de syntax van de taal en je leert omgaan met de
-                                standaard-bibliotheek waarmee je vanuit een programma allerlei veel voorkomende
-                                taken voor je kunt laten verrichten. Alle theorie wordt, onder begeleiding van de
-                                docent, uitgebreid in de praktijk geoefend.</p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> C</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 4 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: enige programmeer-ervaring
-                                            in een (andere) hogere gestructureerde programmeertaal is noodzakelijk.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="C" class="w-70" src="/img/flowchart/c.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/de-programmeertaal-c/"
-                                           target="_blank"> Meer informatie (NL)</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/the-c-programming-language-english/"
-                                           target="_blank"> More information (EN)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">De programmeertaal C++</h3>
-                        <div class="content at-collapse-target">
-                            <p>De programmeertaal C++ is gebaseerd op de taal C, met als belangrijkste verschil dat
-                                C++ ondersteuning biedt voor object-georiënteerd programmeren. De
-                                object-georiënteerde manier van werken biedt voordelen bij softwareprojecten die te
-                                groot zijn om door één programmeur te worden overzien. De voordelen liggen op het
-                                gebied van hergebruik en onderhoudbaarheid van code.</p>
-                            <p>C++ biedt een uitstekende doorgroeimogelijkheid voor C-programmeurs. De syntax is
-                                rechtstreeks afgeleid van ISO/ANSI C en vastgelegd in de ISO/ANSI C++ standaard.
-                                Behalve de syntax van de taal wordt hierin ook een standaard bibliotheek vastgelegd.
-                                Daarin zit een groot aantal basisonderdelen, zoals een string class, container
-                                classes, algoritmen en lokalisatie-mogelijkheden. In de training wordt uitgegaan van
-                                deze standaard.</p>
-                            <p>De training Programmeertaal C++ behandelt niet alleen de syntax van de
-                                programmeertaal C++, maar ook de bijbehorende object-georiënteerde programmeerstijl.
-                                Je leert gebruik maken van de object-georiënteerde faciliteiten in de taal (data
-                                abstractie, encapsulatie, inheritance en polymorfisme/dynamic binding), van de I/O
-                                bibliotheek, templates, exception handling en gebruik van de standaardbibliotheek
-                                STL. Deze onderwerpen worden, onder begeleiding van de docent, uitgebreid in de
-                                praktijk geoefend.</p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> C++</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 4 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: De Programmeertaal C of
-                                            vergelijkbare kennis en dusdanige praktijkervaring dat je vloeiend kunt
-                                            omgaan met o.a. pointers en structures.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="C++" class="w-70" src="/img/flowchart/c++.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/the-c-programming-language-english-3/"
-                                           target="_blank"> Meer informatie (NL)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <ul class="courses">
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">NIEUW: Wat is nieuw in C++20?</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Driejaarlijks wordt er een nieuwe standaard voor C++ de wereld in gestuurd.
-                                        De programmeertaal C++ verandert hierdoor soms een beetje, soms veel.</p>
-                                    <p>De C++20 standaard brengt veel nieuwe dingen, die grote impact zullen hebben
-                                        op hoe we C++ gebruiken.
-                                        In die zin is C++20 net zo'n aardverschuiving als C++11 was.</p>
-                                    <p>Het gebruik van concepten zal op veel plaatsen de noodzaak voor template
-                                        meta programming wegnemen,
-                                        waardoor code begrijpelijker en derhalve beter onderhoudbaar wordt.</p>
-                                    <p>De range library maakt dit heel erg zichtbaar en verandert de manier van
-                                        werken met algorithmen,
-                                        terwijl de view component pipelines in algorithmen brengt.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> C++</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 2 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: Praktijkervaring
-                                                    met C++, de cursus gaat soms erg diep in op C++ omdat nieuwe
-                                                    functionaliteit vaak in de moeilijker stukken van de taal zit.
-                                                    We gaan er van uit dat kennis over C++ tot en met C++17 bekend
-                                                    is, de cursus "What's new in C++17" is dan ook een goede
-                                                    voorbereiding.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="C++" class="w-70" src="/img/flowchart/c++.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/whats-new-in-c20-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Wat is nieuw in C++17?</h4>
-                                <div class="content at-collapse-target">
-                                    <p>Deze training staat volledig in het teken van C++17. Binnen een dag wordt aan
-                                        de hand van voorbeelden een goed beeld gegeven van de wijzigingen in C++17
-                                        ten opzichte van voorgangers C++11 en C++14.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> C++</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 1 dag</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: De Programmeertaal
-                                                    C++ of vergelijkbare kennis, ervaring met C++14 en kennis van de
-                                                    onderwerpen die in C++ Advanced aan bod komen is een pre.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="C++" class="w-70" src="/img/flowchart/c++.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/whats-new-in-c17/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="course at-collapse">
-                                <h4 class="at-collapse-toggle">Advanced C++</h4>
-                                <div class="content at-collapse-target">
-                                    <p>De focus van deze training ligt op de uitbreidingsmogelijkheden van de C++
-                                        library. Er worden handvatten geboden die programmeurs in staat stellen om
-                                        veiliger en efficienter te coderen. Na het volgen van deze training ben je
-                                        in staat om te beoordelen welke constructies beter vermeden of juist
-                                        toegepast kunnen worden in een specifieke situatie.</p>
-                                    <p>In de hands-on lab-omgeving wordt op basis van diverse oefeningen
-                                        praktijkervaring opgedaan met de theorie. Tevens wordt gedemonstreerd hoe
-                                        nieuwe C++ extensions (zoals 14, 17 of 20) bepaalde zaken vereenvoudigen en
-                                        opzichte van de originele C++98 standaard.</p>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="list-unstyled">
-                                                <li><i class="bx bxs-wrench me-1"></i> C++</li>
-                                                <li><i class="bx bxs-calendar me-1"></i> 4 dagen</li>
-                                                <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride
-                                                </li>
-                                                <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                                <li><i class="bx bx-chat"></i> NL / EN</li>
-                                                <li><i class="bx bx-badge-check"></i> Voorkennis: De Programmeertaal
-                                                    C++ of vergelijkbare kennis en dusdanige praktijkervaring dat je
-                                                    vloeiend kunt omgaan met o.a. inheritance en dynamic binding.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <picture class="col-4 d-flex justify-content-center align-items-center">
-                                            <img alt="C++" class="w-70" src="/img/flowchart/c++.png">
-                                        </picture>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.vijfhart.nl/opleidingen/advanced-c-english/"
-                                                   target="_blank"> More information (EN)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="course at-collapse">
-                        <h3 class="at-collapse-toggle">De programmeertaal Fortran</h3>
-                        <div class="content at-collapse-target">
-                            <p>Wie zich in de wereld van numeriek of wetenschappelijk rekenwerk begeeft, kan
-                                eigenlijk niet om Fortran heen. Fortran is ontwikkeld in de jaren '50 door IBM en
-                                was bedoeld voor wetenschappelijke en technische toepassingen. Vandaag de dag is
-                                Fortran nog steeds marktleider in deze gebieden. Vele belangrijke rekenmodellen,
-                                zoals klimaatmodellen, oceaanmodellen en scheikundige modellen, zijn allemaal in
-                                Fortran geschreven en worden ook nog steeds in Fortran onderhouden.</p>
-                            <p>Tijdens deze driedaagse training leer je hoe je programmeert in Fortran. Er wordt
-                                ingegaan op de syntax van de taal, hoe je constructies binnen de taal gebruikt en
-                                hoe je veelvoorkomende taken uitvoert. In de hands-on lab-omgeving doe je aan de
-                                hand van opdrachten meteen praktijkervaring op. Er wordt tijdens de training vooral
-                                gewerkt op basis van moderne versies van Fortran zoals Fortran90 en Fortran95, maar
-                                ook een aantal relevante onderwerpen voor de oude versies van de taal komen aan
-                                bod.</p>
-                            <div class="row">
-                                <div class="col-8">
-                                    <ul class="list-unstyled">
-                                        <li><i class="bx bxs-wrench me-1"></i> Fortran</li>
-                                        <li><i class="bx bxs-calendar me-1"></i> 3 dagen</li>
-                                        <li><i class="bx bx-chalkboard"></i> Klassikaal / Virtueel / Hybride</li>
-                                        <li><i class="bx bxs-flask"></i> Hands-on lab</li>
-                                        <li><i class="bx bx-chat"></i> NL / EN</li>
-                                        <li><i class="bx bx-badge-check"></i> Voorkennis: enige programmeer-ervaring
-                                            in een (andere) programmeertaal is noodzakelijk.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <picture class="col-4 d-flex justify-content-center align-items-center">
-                                    <img alt="Fortran" class="w-70" src="/img/flowchart/fortran.png">
-                                </picture>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="https://www.vijfhart.nl/opleidingen/the-fortran-programming-language/"
-                                           target="_blank"> More information (EN)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div>
-        <p class="text-center small">
-            Al onze trainingen zijn exclusief verkrijgbaar via onze zuster
-            <a href="https://vijfhart.nl/" target="_blank" title="Vijfhart">Vijfhart IT-Opleidingen</a>.
-            Wil je alles nog eens rustig nalezen? Dan
-            <a download href="/files/brochure_trainingen_AT_Computing_2023.pdf">vind je hier</a>
-            onze trainingsbrochure.
-        </p>
-    </div>
+  <header>
+    <h1>Trainingen</h1>
+    <p class="subtitle">Dit zijn onze <span>trainingen</span></p>
+    <p>
+      We leiden sinds 1985 IT professionals op met onze trainingen op gebied van
+      UNIX/Linux en diverse open source tools en programmeertalen. Welke
+      training je bij ons ook volgt: we gaan voor niets minder dan topkwaliteit
+      van materiaal, docent en lab-omgeving.
+    </p>
+    <p>
+      Heb je specifieke trainingswensen? Geen probleem! We leveren met veel
+      plezier maatwerktrainingen die we zoveel mogelijk afstemmen op jouw
+      praktijksituatie.
+      <a href="#contact" title="Contact opnemen"
+        >Neem gerust contact met ons op</a
+      >
+      om je trainingswensen te delen en we gaan graag met je in gesprek over een
+      passende oplossing.
+    </p>
+  </header>
+  <div class="flowchart">
+    <ul class="courses">
+      {{ range where .Site.Pages "Params.title" "Linux/UNIX Fundamentals"}} {{
+      .Content }} {{ end }} {{ range where .Site.Pages "Params.title"
+      "leren-programmeren-in-python"}} {{ .Content }} {{ end }}
+    </ul>
+  </div>
+  <div>
+    <p class="text-center small">
+      Al onze trainingen zijn exclusief verkrijgbaar via onze zuster
+      <a href="https://vijfhart.nl/" target="_blank" title="Vijfhart"
+        >Vijfhart IT-Opleidingen</a
+      >. Wil je alles nog eens rustig nalezen? Dan
+      <a download href="/files/brochure_trainingen_AT_Computing_2023.pdf"
+        >vind je hier</a
+      >
+      onze trainingsbrochure.
+    </p>
+  </div>
 </section>
 <section class="container-fluid" id="leerpad">
-    <header>
-        <h1>ATypical Open Source Learning Journey</h1>
-        <p class="subtitle">Dit is ons <span>leerpad</span> voor (toekomstige) open source engineers</p>
-        <p>Via de afbeelding kom je bij een klikbare, hoge resolutie PDF-versie van dit leerpad. De PDF-versie is
-            uitermate geschikt om uit te printen en bijvoorbeeld op te hangen bij je werkplek of in je
-            slaapkamer.</p>
-    </header>
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center align-items-center">
-            <a class="w-75" download
-               href="/files/atypical_open_source_learning_journey_2023.pdf" title="ATypical Open Source Learning Journey">
-                <img alt="ATypical Open Source Learning Journey" class="w-100"
-                     src="/img/journey/atypical_learning_journey.svg">
-            </a>
-        </div>
+  <header>
+    <h1>ATypical Open Source Learning Journey</h1>
+    <p class="subtitle">
+      Dit is ons <span>leerpad</span> voor (toekomstige) open source engineers
+    </p>
+    <p>
+      Via de afbeelding kom je bij een klikbare, hoge resolutie PDF-versie van
+      dit leerpad. De PDF-versie is uitermate geschikt om uit te printen en
+      bijvoorbeeld op te hangen bij je werkplek of in je slaapkamer.
+    </p>
+  </header>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <a
+        class="w-75"
+        download
+        href="/files/atypical_open_source_learning_journey_2023.pdf"
+        title="ATypical Open Source Learning Journey"
+      >
+        <img
+          alt="ATypical Open Source Learning Journey"
+          class="w-100"
+          src="/img/journey/atypical_learning_journey.svg"
+        />
+      </a>
     </div>
+  </div>
 </section>
 <section class="container-fluid" id="kroonjuwelen">
-    <header>
-        <h1>Onze kroonjuwelen</h1>
-        <p class="subtitle">Dit zijn onze <span>kroonjuwelen</span></p>
-        <p>Voor wie echt diep onder de motorkap wil duiken hebben wij twee unieke trainingen in ons assoriment. Van
-            gurus, voor gurus.</p>
-    </header>
-    <div class="row card-columns">
-        <div class="col-lg-6">
-            <div class="card at-collapse">
-                <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
-                    Linux System Programming
-                    <span>
-                        <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                    </span>
-                </h2>
-                <div class="card-body at-collapse-target flex-column">
-                    <p>De cursus Linux system programming leert C-programmeurs de geavanceerde mechanismen van de
-                        Linux-kernel. Deze cursus biedt geen monotone lijst van beschikbare system calls of library
-                        functions, maar behandelt vooral de onderliggende concepten. In deze LSP-cursus bespreken we
-                        onderwerpen als procesbeheer (creatie en transformatie van processen), bestandstoegang (de
-                        conventionele manier, maar ook de meer geavanceerde manier via memory mapping) en
-                        directory's, en alle implementaties van interprocescommunicatie (pipes, signalen, TCP
-                        /UDP-sockets, POSIX IPC-berichtenwachtrijen/gedeeld geheugen/semaforen). Verder gaan we
-                        uitgebreid in op de manier om multithreaded applicaties te ontwikkelen met behulp van de
-                        pthread library. Dit omvat onderwerpen als de levenscyclus van een thread (creatie en
-                        beëindiging), synchronisatietechnieken en het herkennen van valkuilen.</p>
-                    <p>Zijn niet alle onderwerpen uit deze training voor jou relevant? Geen probleem. We kunnen ook
-                        specifieke modules/onderdelen van de training voor je bundelen. Neem contact met ons op voor
-                        de maatwerk mogelijkheden.</p>
-                    <div class="row">
-                        <div class="col-8 mb-0">
-                            <ul class="list-unstyled">
-                                <li><i class="bx bx-euro me-1"></i> &euro; 2.975,- per deelnemer</li>
-                                <li><i class="bx bx-wrench me-1"></i> Linux, C</li>
-                                <li><i class="bx bxs-calendar me-1"></i> 5 dagen</li>
-                                <li><i class="bx bx-euro me-1"></i> Fysiek / Virtueel / Hybride</li>
-                                <li><i class="bx bxs-flask me-1"></i> Hands-on lab</li>
-                                <li><i class="bx bx-chat me-1"></i> NL / EN</li>
-                                <li><i class="bx bx-info-circle me-1"></i> Deze training wordt alleen op aanvraag
-                                    gepland
-                                </li>
-                                <li><i class="bx bx-badge-check me-1"></i> Voorkennis: Gedegen kennis van de
-                                    programmeertaal C en minimaal 6 maanden ervaring met Linux/UNIX is vereist
-                                </li>
-                            </ul>
-                            <p class="mb-0">
-                                <a href="https://www.vijfhart.nl/opleidingen/linux-system-programming-english-course/"
-                                   target="_blank" title="Linux system programming"> More information (EN)</a>
-                            </p>
-                        </div>
-                        <picture class="col-4 mb-0 d-flex justify-content-center align-items-center">
-                            <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                        </picture>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card at-collapse">
-                <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
-                    Linux Performance Analysis & Tuning
-                    <span>
-                        <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                    </span>
-                </h2>
-                <div class="card-body at-collapse-target flex-column">
-                    <p>De training “Linux performance analysis and tuning” geeft inzicht in de methoden en
-                        technieken om de performance van een Linux-machine te meten, te beoordelen en te verbeteren.
-                        Extra hardware kopen is meestal niet de juiste oplossing voor een performance probleem. Je
-                        leert hoe de belasting van de vier belangrijke hardware resources (CPU, geheugen, disk,
-                        netwerk) gemeten kan worden en hoe overbelasting kan worden bestreden door herconfiguratie,
-                        spreiding, begrenzing of (als laatste stap) het bijkopen van hardware. Deze onderwerpen
-                        worden – onder begeleiding van de docent – in de praktijk geoefend.</p>
-                    <p>Zijn niet alle onderwerpen uit deze training voor jou relevant? Geen probleem. We kunnen ook
-                        specifieke modules/onderdelen van de training voor je bundelen. Neem contact met ons op voor
-                        de maatwerk mogelijkheden.</p>
-                    <p>Benieuwd wat we voor jou kunnen betekenen? Neem dan vrijblijvend contact op.</p>
-                    <div class="row">
-                        <div class="col-8 mb-0">
-                            <ul class="list-unstyled">
-                                <li><i class="bx bx-euro me-1"></i> &euro; 2.975,- per deelnemer</li>
-                                <li><i class="bx bx-wrench me-1"></i> Linux</li>
-                                <li><i class="bx bxs-calendar me-1"></i> 5 dagen</li>
-                                <li><i class="bx bx-euro me-1"></i> Fysiek / Virtueel / Hybride</li>
-                                <li><i class="bx bxs-flask me-1"></i> Hands-on lab</li>
-                                <li><i class="bx bx-chat me-1"></i> NL / EN</li>
-                                <li><i class="bx bx-info-circle me-1"></i> Deze training wordt alleen op aanvraag
-                                    gepland
-                                </li>
-                                <li><i class="bx bx-badge-check me-1"></i> Voorkennis: Gedegen kennis van Linux/UNIX
-                                    is vereist.
-                                </li>
-                            </ul>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="https://www.vijfhart.nl/opleidingen/linux-performance-analysis-and-tuning/"
-                                       target="_blank"> Meer informatie (NL)</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://www.vijfhart.nl/opleidingen/linux-performance-analysis-and-tuning-english/"
-                                       target="_blank"> More information (EN)</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <picture class="col-4 mb-0 d-flex justify-content-center align-items-center">
-                            <img alt="Tux" class="w-70" src="/img/flowchart/tux.png">
-                        </picture>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <header>
+    <h1>Onze kroonjuwelen</h1>
+    <p class="subtitle">Dit zijn onze <span>kroonjuwelen</span></p>
+    <p>
+      Voor wie echt diep onder de motorkap wil duiken hebben wij twee unieke
+      trainingen in ons assoriment. Van gurus, voor gurus.
+    </p>
+  </header>
+  <div class="row card-columns">
+    {{ range(where .Site.RegularPages "Type" "kroonjuwelen").Reverse }}
+      {{ .Content }}
+    {{ end }}
+  </div>
 </section>
 <section class="container-fluid" id="workshops">
-    <header>
-        <h1>Workshops</h1>
-        <p class="subtitle">Dit zijn onze <span>workshops</span></p>
-        <p>Binnen een halve dag met je team een flinke lading kennis tanken en hands-on ervaring opdoen: dat kan met
-            onze workshops! Hieronder vind je een selectie uit ons assortiment. Heb je specifieke wensen of wil je
-            een workshop bestellen? Neem dan contact met ons op en we gaan ermee aan de slag. Alle prijzen zijn
-            exclusief BTW.</p>
-    </header>
-    <div class="row card-columns">
-        {{ range(where .Site.RegularPages "Type" "workshops").ByDate.Reverse }}
-        <div class="col-lg-4">
-            <div class="card at-collapse">
-                <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
-                    {{ .Title }}
-                    <span>
-                        <img alt="AT Computing logo" src="/img/logo/arrow.png">
-                    </span>
-                </h2>
-                <div class="card-body at-collapse-target flex-column">
-                    <p>{{ .Content }}</p>
-                </div>
-            </div>
+  <header>
+    <h1>Workshops</h1>
+    <p class="subtitle">Dit zijn onze <span>workshops</span></p>
+    <p>
+      Binnen een halve dag met je team een flinke lading kennis tanken en
+      hands-on ervaring opdoen: dat kan met onze workshops! Hieronder vind je
+      een selectie uit ons assortiment. Heb je specifieke wensen of wil je een
+      workshop bestellen? Neem dan contact met ons op en we gaan ermee aan de
+      slag. Alle prijzen zijn exclusief BTW.
+    </p>
+  </header>
+  <div class="row card-columns">
+    {{ range(where .Site.RegularPages "Type" "workshops").ByDate.Reverse }}
+    <div class="col-lg-4">
+      <div class="card at-collapse">
+        <h2 class="card-header at-collapse-toggle at-collapse-toggle-logo">
+          {{ .Title }}
+          <span>
+            <img alt="AT Computing logo" src="/img/logo/arrow.png" />
+          </span>
+        </h2>
+        <div class="card-body at-collapse-target flex-column">
+          <p>{{ .Content }}</p>
         </div>
-        {{ end }}
+      </div>
     </div>
+    {{ end }}
+  </div>
 </section>
 <section class="container-fluid" id="contact">
-    <header>
-        <h1>Contact</h1>
-        <p class="subtitle">Dit zijn onze <span>contactgegevens</span></p>
-        <p>Heb je een vraag? Ben je op zoek naar een maatwerktraining of een workshop? Wil je ons iets laten weten?
-            Of wil je bij ons komen werken? We horen het graag! Via onderstaande kanalen kun je contact met ons
-            opnemen.</p>
-    </header>
-    <div class="row mb-3">
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bx-map"></i>
-                <p class="h5 fw-medium mb-1">ATypical address</p>
-                <p class="mb-0">
-                    <a href="https://osm.org/go/0GFfpwHBn?layers=N&m=" target="_blank">51.996006, 5.960722</a>
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bx-envelope"></i>
-                <p class="h5 fw-medium mb-1">E-mail</p>
-                <p class="mb-0">
-                    <a href="mailto:info@atcomputing.nl">info@atcomputing.nl</a>
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="box mb-3">
-                <i class="bx bx-phone"></i>
-                <p class="h5 fw-medium mb-1">Telefoon</p>
-                <p class="mb-0">
-                    <a href="tel:+31243527282">+31 24 352 72 82</a>
-                </p>
-            </div>
-        </div>
+  <header>
+    <h1>Contact</h1>
+    <p class="subtitle">Dit zijn onze <span>contactgegevens</span></p>
+    <p>
+      Heb je een vraag? Ben je op zoek naar een maatwerktraining of een
+      workshop? Wil je ons iets laten weten? Of wil je bij ons komen werken? We
+      horen het graag! Via onderstaande kanalen kun je contact met ons opnemen.
+    </p>
+  </header>
+  <div class="row mb-3">
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bx-map"></i>
+        <p class="h5 fw-medium mb-1">ATypical address</p>
+        <p class="mb-0">
+          <a href="https://osm.org/go/0GFfpwHBn?layers=N&m=" target="_blank"
+            >51.996006, 5.960722</a
+          >
+        </p>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <iframe allowfullscreen=""
-                    class="mb-4 mb-lg-0"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=5.959254205226899%2C51.994958841318606%2C5.962258279323578%2C51.997001723365045&amp;layer=mapnik&amp;marker=51.99598029399384%2C5.960756242275238"
-                    style="border:0; width: 100%; height: 500px;"></iframe>
-        </div>
-        <div class="col-lg-6">
-            <form action="https://formspree.io/f/xjvjzdjq" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="name">Naam</label>
-                    <input class="form-control" id="name" name="name" required="required" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="email">E-mailadres</label>
-                    <input class="form-control" id="email" name="email" required="required" type="email">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="subject">Onderwerp</label>
-                    <input class="form-control" id="subject" name="subject" required="required" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="message">Bericht</label>
-                    <textarea class="form-control" id="message" name="message" required="required"
-                              rows="5"></textarea>
-                </div>
-                <button class="btn btn-primary" type="submit">Verzenden</button>
-            </form>
-        </div>
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bx-envelope"></i>
+        <p class="h5 fw-medium mb-1">E-mail</p>
+        <p class="mb-0">
+          <a href="mailto:info@atcomputing.nl">info@atcomputing.nl</a>
+        </p>
+      </div>
     </div>
+    <div class="col-lg-4">
+      <div class="box mb-3">
+        <i class="bx bx-phone"></i>
+        <p class="h5 fw-medium mb-1">Telefoon</p>
+        <p class="mb-0">
+          <a href="tel:+31243527282">+31 24 352 72 82</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <iframe
+        allowfullscreen=""
+        class="mb-4 mb-lg-0"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=5.959254205226899%2C51.994958841318606%2C5.962258279323578%2C51.997001723365045&amp;layer=mapnik&amp;marker=51.99598029399384%2C5.960756242275238"
+        style="border: 0; width: 100%; height: 500px"
+      ></iframe>
+    </div>
+    <div class="col-lg-6">
+      <form action="https://formspree.io/f/xjvjzdjq" method="post">
+        <div class="mb-3">
+          <label class="form-label" for="name">Naam</label>
+          <input
+            class="form-control"
+            id="name"
+            name="name"
+            required="required"
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="email">E-mailadres</label>
+          <input
+            class="form-control"
+            id="email"
+            name="email"
+            required="required"
+            type="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="subject">Onderwerp</label>
+          <input
+            class="form-control"
+            id="subject"
+            name="subject"
+            required="required"
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="message">Bericht</label>
+          <textarea
+            class="form-control"
+            id="message"
+            name="message"
+            required="required"
+            rows="5"
+          ></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Verzenden</button>
+      </form>
+    </div>
+  </div>
 </section>
 {{ end }}
