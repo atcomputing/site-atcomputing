@@ -130,7 +130,7 @@ courses:
   genoemd). Het is gebruikelijk om een Bash-script te beginnen met een zogeheten
   <code>shebang</code> of ook wel <code>hashbang</code>. Deze ziet er vaak als
   volgt uit <code>#!/bin/bash</code> en is bedoeld om de kernel te vertellen hoe
-  en waarmee je wilt dat jouw programma precies wordt uitegevoerd. In het geval
+  en waarmee je wilt dat jouw programma precies wordt uitgevoerd. In het geval
   van een bash-script vertel je dus tegen de kernel dat
   <code>/bin/bash</code> gebruikt moet worden. <code>bash</code> weet vervolgens
   precies wat er uitgevoerd moet worden, omdat het de taal in het script
@@ -149,7 +149,7 @@ courses:
                   #!/bin/bash
 
                   begroeting(){
-                    echo “Goedendag beste guru, hoe maakt u het?”	
+                    echo “Goedendag beste guru, hoe maakt u het?”
                   }
                 </code></pre>
     <p class="text-muted">bash</p>
@@ -288,9 +288,9 @@ courses:
     <pre><code>
               $ vim functie
               #!/bin/bash
-              
+
               begroeting(){
-                echo “Goedendag beste $1, hoe maakt u het?”	
+                echo “Goedendag beste $1, hoe maakt u het?”
               }
             </code></pre>
     <p class="text-muted">bash</p>
@@ -306,7 +306,7 @@ courses:
   <div class="card">
     <pre><code>
               $ begroeting “Linus”
-              Goedendag beste Linus, hoe maakt u het?              
+              Goedendag beste Linus, hoe maakt u het?
             </code></pre>
     <p class="text-muted">bash</p>
   </div>
@@ -326,8 +326,8 @@ courses:
 
               begroeting(){
                 echo “Goedendag beste $1, hoe maakt u het?”
-                echo “Uw huidige werk is $2”	
-              }      
+                echo “Uw huidige werk is $2”
+              }
             </code></pre>
     <p class="text-muted">bash</p>
   </div>
@@ -373,12 +373,12 @@ courses:
 
               begroeting(){
 
-                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag' 
+                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag'
                       vandaag=$(dag)
 
                       echo "Goedendag beste $1, hoe maakt u het?"
                       echo "Uw huidige werk is $2"
-                      
+
                       # hier plakken we de variabele 'vandaag' aan de tekst vast.
                       echo "Het is vandaag:" $vandaag
 
@@ -388,7 +388,7 @@ courses:
 
               # deze functie geeft de dag van de week als uitkomst
               dag(){
-              
+
                       date "+%A"
 
               }
@@ -434,13 +434,13 @@ courses:
               #!/bin/bash
 
               begroeting(){
-              
-                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag' 
+
+                      # roep de functie 'dag' aan en zet de uitkomst in de variabele 'vandaag'
                       vandaag=$(dag)
-              
+
                       # valideer de meegegeven argumenten
-              
-                      if [[ $1 = 'Linus' ]] && [[ $2 = 'eindbaas van de Linux kernel' ]] 
+
+                      if [[ $1 = 'Linus' ]] && [[ $2 = 'eindbaas van de Linux kernel' ]]
                       then
                               echo "Goedendag beste $1, hoe maakt u het?"
                               echo "Uw huidige werk is $2"
@@ -448,17 +448,17 @@ courses:
                               echo "Ongeldige waarde ingevoerd!"
                               return 1
                       fi
-              
+
                       # hier plakken we de variabele 'vandaag' aan de tekst vast.
                       echo "Het is vandaag:" $vandaag
-              
+
                       # het is ook mogelijk om rechstreeks de 'dag' functie aan te roepen binnen het 'echo' commando.
                       echo "De functie werkt ook zo:" $(dag)
               }
-              
+
               # deze functie geeft de dag van de week als uitkomst
               dag(){
-              
+
                       date "+%A"
 
               }
